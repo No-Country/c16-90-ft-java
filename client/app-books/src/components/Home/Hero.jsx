@@ -1,5 +1,5 @@
 import React from "react";
-import bookSvg from "../../../public/books.svg";
+import bookSvg from "/books.svg";
 
 const Hero = () => {
   return (

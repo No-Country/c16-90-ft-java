@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchForm = ({ currentValue, setCurrentValue, handleSubmit }) => {
   return (
-    <form className="flex max-w-xl" onSubmit={handleSubmit}>
+    <form className="flex w-full my-10" onSubmit={handleSubmit}>
       <input
         className="flex h-10 border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full  rounded-lg rounded-r-none focus-visible:ring-transparent pr-8"
         placeholder="Search book - authors"
@@ -10,7 +10,7 @@ const SearchForm = ({ currentValue, setCurrentValue, handleSubmit }) => {
         onChange={(e) => setCurrentValue(e.target.value)}
       />
       <button
-        className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-sky-700 text-white hover:bg-sky-700/80 h-10 px-4 py-2 rounded-l-none"
+        className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-400 text-white hover:bg-sky-700/80 h-10 px-4 py-2 rounded-l-none"
         type="submit"
       >
         <svg

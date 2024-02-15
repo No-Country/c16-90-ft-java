@@ -22,23 +22,28 @@ const Categories = ({ setCategorySelect, handleReset }) => {
   ];
 
   return (
-    <ul className="flex gap-4 flex-wrap">
-      {category.map((items, index) => (
-        <li
-          key={index}
+    <>
+      <h2 class="text-start my-4">
+        <span class=" text-2xl lg:text-3xl font-semibold ">Categorias</span>
+      </h2>
+      <ul className="flex gap-4 flex-wrap">
+        {category.map((items, index) => (
+          <li
+            key={index}
+            className="py-2 px-3 text-sm bg-muted text-white rounded-md flex items-center gap-x-1 bg-yellow-500 transition cursor-pointer hover:bg-slate-400"
+            onClick={(e) => setCategorySelect(e.target.innerText)}
+          >
+            {items.name}
+          </li>
+        ))}
+        <button
+          onClick={handleReset}
           className="py-2 px-3 text-sm bg-muted rounded-md flex items-center gap-x-1 bg-slate-200 transition cursor-pointer hover:bg-slate-400"
-          onClick={(e) => setCategorySelect(e.target.innerText)}
         >
-          {items.name}
-        </li>
-      ))}
-      <button
-        onClick={handleReset}
-        className="py-2 px-3 text-sm bg-muted rounded-md flex items-center gap-x-1 bg-slate-200 transition cursor-pointer hover:bg-slate-400"
-      >
-        reset
-      </button>
-    </ul>
+          reset
+        </button>
+      </ul>
+    </>
   );
 };
 
