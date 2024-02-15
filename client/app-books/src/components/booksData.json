@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "title": "Ejemplo de Libro 1",
+        "authors": ["Autor 1", "Autor 2"],
+        "description": "Descripción del Libro 1",
+        "publishDate": "2024-02-14",
+        "pageCount": 300,
+        "categories": ["Ficción", "Misterio"],
+        "imgLinks": "https://picsum.photos/800/600"
+    },
+    {
+        "id": 2,
+        "title": "Ejemplo de Libro 2",
+        "authors": ["Autor 3"],
+        "description": "Descripción del Libro 2",
+        "publishDate": "2024-03-01",
+        "pageCount": 250,
+        "categories": ["Ciencia Ficción", "Aventura"],
+        "imgLinks": "https://picsum.photos/800/600"
+    },
+    {
+        "id": 3,
+        "title": "Ejemplo de Libro 3",
+        "authors": ["Autor 4", "Autor 5"],
+        "description": "Descripción del Libro 3",
+        "publishDate": "2024-04-15",
+        "pageCount": 400,
+        "categories": ["Historia"],
+        "imgLinks": "https://picsum.photos/800/600"
+    },
+    {
+        "id": 4,
+        "title": "Ejemplo de Libro 4",
+        "authors": ["Autor 6"],
+        "description": "Descripción del Libro 4",
+        "publishDate": "2024-05-20",
+        "pageCount": 180,
+        "categories": ["Romance"],
+        "imgLinks": "https://picsum.photos/800/600"
+    },
+    {
+        "id": 5,
+        "title": "Ejemplo de Libro 5",
+        "authors": ["Autor 7", "Autor 8"],
+        "description": "Descripción del Libro 5",
+        "publishDate": "2024-06-10",
+        "pageCount": 350,
+        "categories": ["Fantasía"],
+        "imgLinks": "https://picsum.photos/800/600"
+    }
+]

@@ -1,13 +1,18 @@
-import "./App.css";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+import BookDetail from './components/BookDetail';
+import BookDetailContainer from './components/BookDetailContainer';
+
+
+const App = () => {
   return (
-    <main>
-      <h1 className="text-3xl font-bold underline text-red-300">
-        Hello world!
-      </h1>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/:id" element={<BookDetailContainer/>} />
+        
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
