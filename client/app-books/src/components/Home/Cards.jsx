@@ -3,7 +3,7 @@ import React from "react";
 const Cards = ({ title, authors, genres, image, description }) => {
   const genresArray = genres.split(",");
   return (
-    <div>
+    <div className="flex justify-center h-full">
       <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my- h-full">
         <img
           className="relative w-full aspect-video rounded-md overflow-hidden object-cover"

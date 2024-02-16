@@ -4,7 +4,7 @@ import Cards from "./Cards";
 const SectionBooks = ({ books, message }) => {
   return (
     <div className="mt-10">
-      <div className="grid grid-cols-3 grid-rows-1 gap-4 mt-10">
+      <div className="grid grid-cols-4 gap-4 mt-10 mx-auto justify-center items-center">
         {message && <p>{message}</p>}
         {books.map((book, index) => (
           <Cards
