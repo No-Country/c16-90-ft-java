@@ -1,10 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
     <div className="w-auto flex justify-between items-center bg-gray-50 px-10 py-20 rounded-3xl border-2 border-gray-200 ">
-      <div className='  justify-center'>
+      <div className="  justify-center">
         <h1 className="text-4xl font-semibold">¡Bienvenido!</h1>
         <p className="font-medium text-m text-gray-500 mt-4">
           Por favor ingresa tus datos.
@@ -29,7 +29,7 @@ const LoginPage = () => {
         <div className="mt-8 flex justify-between items-center">
           <div>
             <input type="checkbox" id="remember" />
-            <label className="ml-2 font-medium text-base" for="rember">
+            <label className="ml-2 font-medium text-base" htmlFor="rember">
               Recordarme.
             </label>
           </div>
@@ -44,11 +44,13 @@ const LoginPage = () => {
         </div>
         <div className="mt-8 ">
           <p>¿Todavía no tienes una cuenta?</p>
-          <Link to='/signup'><button>Registrarse</button></Link> 
+          <Link to="/signup">
+            <button>Registrarse</button>
+          </Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default LoginPage
+export default LoginPage;

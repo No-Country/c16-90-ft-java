@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const SignupPage = () => {
   return (
     <div className="w-auto flex justify-between items-center bg-gray-50 px-10 py-20 rounded-3xl border-2 border-gray-200 ">
-      <div className='  justify-center'>
+      <div className="  justify-center">
         <h1 className="text-4xl font-semibold">¡Hola!</h1>
         <p className="font-medium text-m text-gray-500 mt-4">
-          ¿No tienes una cuenta?  Por favor ingresa tus datos.
+          ¿No tienes una cuenta? Por favor ingresa tus datos.
         </p>
       </div>
       <div className="">
@@ -28,7 +29,7 @@ const SignupPage = () => {
         <div className="mt-8 flex justify-between items-center">
           <div>
             <input type="checkbox" id="remember" />
-            <label className="ml-2 font-medium text-base" for="rember">
+            <label className="ml-2 font-medium text-base" htmlFor="rember">
               Recordarme.
             </label>
           </div>
@@ -43,11 +44,13 @@ const SignupPage = () => {
         </div>
         <div className="mt-8 ">
           <p>¿Ya tienes una cuenta?</p>
-          <Link to='/login'><button>Entrar</button></Link> 
+          <Link to="/login">
+            <button>Entrar</button>
+          </Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default SignupPage
+export default SignupPage;

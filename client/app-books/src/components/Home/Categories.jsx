@@ -23,8 +23,8 @@ const Categories = ({ setCategorySelect, handleReset }) => {
 
   return (
     <>
-      <h2 class="text-start my-4">
-        <span class=" text-2xl lg:text-3xl font-semibold ">Categorias</span>
+      <h2 className="text-start my-4">
+        <span className=" text-2xl lg:text-3xl font-semibold ">Categorias</span>
       </h2>
       <ul className="flex gap-4 flex-wrap">
         {category.map((items, index) => (
