@@ -7,7 +7,7 @@ function App() {
   return (
     <main>
       <SearchBarRoute/>;
-      <Home />
+      
     </main>
   );
 }
