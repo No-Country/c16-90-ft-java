@@ -1,7 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
+
+  const navigate = useNavigate();
+
+
+  const {name, password, onInputChange, onResetForm} = useForm({
+    name: '',
+    password:'',
+
+  });
+
+  const onSignup = (e) => {
+    e.preventDefault();
+    navigate('/dashboard',{
+      replace: true,
+      state:{
+        logged: true, 
+        name,
+      },
+    });
+    onResetForm();
+  }
   return (
     <div className="w-auto flex justify-between items-center bg-gray-50 px-10 py-20 rounded-3xl border-2 border-gray-200 ">
       <div className="  justify-center">
@@ -10,7 +31,7 @@ const SignupPage = () => {
           ¿No tienes una cuenta? Por favor ingresa tus datos.
         </p>
       </div>
-      <div className="">
+      <form onChange={onSignup} className="">
         <div>
           <label className="text-lg font-medium">Nombre de usuario</label>
           <input
@@ -48,7 +69,7 @@ const SignupPage = () => {
             <button>Entrar</button>
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

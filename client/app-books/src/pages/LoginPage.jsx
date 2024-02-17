@@ -1,7 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useForm from "../hooks/useForm";
 
 const LoginPage = () => {
+
+  const navigate = useNavigate();
+
+  const {name, password, onInputChange, onResetForm} = useForm({
+    name: '',
+    password:'',
+
+  });
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    navigate('/dashboard',{
+      replace: true,
+      state:{
+        logged: true, 
+        name,
+      },
+    });
+    onResetForm();
+  }
   return (
     <div className="w-auto flex justify-between items-center bg-gray-50 px-10 py-20 rounded-3xl border-2 border-gray-200 ">
       <div className="  justify-center">
@@ -10,20 +31,33 @@ const LoginPage = () => {
           Por favor ingresa tus datos.
         </p>
       </div>
-      <div className="">
+      <form onSubmit={onLogin} className="">
         <div>
-          <label className="text-lg font-medium">Nombre de usuario</label>
+          <label htmlFor="name" className="text-lg font-medium">Nombre de usuario</label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent "
             placeholder="Enter your user name"
+            type="text"
+            name="name"
+            id="name"
+            value={name}
+            onChange={onInputChange}
+            required
+            autoComplete="off"
           />
         </div>
         <div>
-          <label className="text-lg font-medium">Contraseña</label>
+          <label htmlFor="password" className="text-lg font-medium">Contraseña</label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent"
             placeholder="Enter your password"
             type="password"
+            name="password"
+            id="password"
+            value={password}
+            onChange={onInputChange}
+            required
+            autoComplete="off"
           />
         </div>
         <div className="mt-8 flex justify-between items-center">
@@ -48,7 +82,7 @@ const LoginPage = () => {
             <button>Registrarse</button>
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import SignupPage from "../pages/SignupPage";
 import Tables from "../pages/Tables";
 import Settings from "../pages/Settings";
 import PageTitle from "../components/Admin/PageTitle";
+import DashboardAdminRoute from "./DashboardAdminRoute";
 
 const SearchBarRoute = () => {
   return (
@@ -17,7 +18,7 @@ const SearchBarRoute = () => {
           <Route index element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/dashboard" element={<DashboardAdminRoute />} />
         </Route>
       </Routes>
     </>
