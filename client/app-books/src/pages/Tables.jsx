@@ -7,12 +7,12 @@ import DefaultLayout from "../layout/DefaultLayout";
 const Tables = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Tables" />
+      <Breadcrumb pageName="Table" />
 
       <div className="flex flex-col gap-10">
         <TableOne />
-        <TableTwo />
-        <TableThree />
+        {/* <TableTwo />
+        <TableThree /> */}
       </div>
     </DefaultLayout>
   );

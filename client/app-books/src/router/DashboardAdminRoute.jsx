@@ -9,7 +9,7 @@ const DashboardAdminRoute = () => {
     <>
       <Routes>
         <Route
-          path="/dashboard"
+          path="/dashboard*"
           element={
             <>
               <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />

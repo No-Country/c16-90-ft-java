@@ -1,123 +1,166 @@
-import BrandOne from "../../../images/brand/brand-01.svg";
-import BrandTwo from "../../../images/brand/brand-02.svg";
-import BrandThree from "../../../images/brand/brand-03.svg";
-import BrandFour from "../../../images/brand/brand-04.svg";
-import BrandFive from "../../../images/brand/brand-05.svg";
+import React, { useState, useEffect } from "react";
 
-const brandData = [
-  {
-    logo: BrandOne,
-    name: "Google",
-    visitors: 3.5,
-    revenues: "5,768",
-    sales: 590,
-    conversion: 4.8,
-  },
-  {
-    logo: BrandTwo,
-    name: "Twitter",
-    visitors: 2.2,
-    revenues: "4,635",
-    sales: 467,
-    conversion: 4.3,
-  },
-  {
-    logo: BrandThree,
-    name: "Github",
-    visitors: 2.1,
-    revenues: "4,290",
-    sales: 420,
-    conversion: 3.7,
-  },
-  {
-    logo: BrandFour,
-    name: "Vimeo",
-    visitors: 1.5,
-    revenues: "3,580",
-    sales: 389,
-    conversion: 2.5,
-  },
-  {
-    logo: BrandFive,
-    name: "Facebook",
-    visitors: 3.5,
-    revenues: "6,768",
-    sales: 390,
-    conversion: 4.2,
-  },
+// como el nombre de usuario, fecha
+//  y hora de registro, y cualquier dato adicional útil.
+const headerNav = [
+  "Nombre",
+  "email",
+  "Fecha Registro",
+  "Hora Registro",
+  "Sexo",
 ];
 
 const TableOne = () => {
+  const [dataUser, setDataUser] = useState([]);
+  const [hiddenUsers, setHiddenUsers] = useState(false);
+  const [sortOption, setSortOption] = useState("recientes");
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch(
+        "https://example-data.draftbit.com/people?_limit=40"
+      );
+      const data = await response.json();
+      setDataUser(data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
+  const handleButtonAct = async () => {
+    try {
+      const response = await fetch(
+        "https://example-data.draftbit.com/people?_limit=40"
+      );
+      const newData = await response.json();
+      setDataUser(newData);
+      alert("Datos actualizados correctamente");
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      alert("Error al actualizar datos");
+    }
+  };
+
+  const handleSortChange = (event) => {
+    setSortOption(event.target.value);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-        Top Channels
-      </h4>
+      <div className="flex justify-between mx-auto items-center">
+        <h4 className="text-xl font-semibold text-black dark:text-white">
+          Users {dataUser.length}
+        </h4>
+
+        <form className="max-w-sm mx-auto">
+          <select
+            id="countries"
+            className="bg-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            onChange={handleSortChange}
+          >
+            <option value="recientes">Más recientes</option>
+            <option value="antiguos">Mas antiguos</option>
+          </select>
+        </form>
+
+        <button
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          onClick={handleButtonAct}
+        >
+          Actualizar
+        </button>
+      </div>
 
       <div className="flex flex-col">
         <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
-          <div className="p-2.5 xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Source
-            </h5>
-          </div>
-          <div className="p-2.5 text-center xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Visitors
-            </h5>
-          </div>
-          <div className="p-2.5 text-center xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Revenues
-            </h5>
-          </div>
-          <div className="hidden p-2.5 text-center sm:block xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Sales
-            </h5>
-          </div>
-          <div className="hidden p-2.5 text-center sm:block xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Conversion
-            </h5>
-          </div>
+          {headerNav.map((items, index) => (
+            <div className="p-2.5 xl:p-5" key={index}>
+              <h5 className="text-sm font-medium uppercase xsm:text-base">
+                {items}
+              </h5>
+            </div>
+          ))}
         </div>
 
-        {brandData.map((brand, key) => (
-          <div
-            className={`grid grid-cols-3 sm:grid-cols-5 ${
-              key === brandData.length - 1
-                ? ""
-                : "border-b border-stroke dark:border-strokedark"
-            }`}
-            key={key}
-          >
-            <div className="flex items-center gap-3 p-2.5 xl:p-5">
-              <div className="flex-shrink-0">
-                <img src={brand.logo} alt="Brand" />
+        <div className="usersContainer">
+          {dataUser
+            .sort((a, b) => {
+              if (sortOption === "recientes") {
+                return (
+                  new Date(b.birthdate).getTime() -
+                  new Date(a.birthdate).getTime()
+                );
+              } else if (sortOption === "antiguos") {
+                return (
+                  new Date(a.birthdate).getTime() -
+                  new Date(b.birthdate).getTime()
+                );
+              }
+              return 0;
+            })
+            .map((user, key) => (
+              <div
+                className={`grid grid-cols-3 sm:grid-cols-5 ${
+                  key === user.length - 1
+                    ? ""
+                    : "border-b border-stroke dark:border-strokedark"
+                } ${key >= 10 && hiddenUsers === false && "hidden"}`}
+                key={key}
+              >
+                <div className="flex items-center gap-3 p-2.5 xl:p-5">
+                  <div className="flex-shrink-0">
+                    <img
+                      src={user.avatar}
+                      alt={user.first_name}
+                      className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+                    />
+                  </div>
+                  <p className="hidden text-black dark:text-white sm:block">
+                    {user.first_name}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-center p-2.5 xl:p-5">
+                  <p className="text-black dark:text-white">{user.email}</p>
+                </div>
+
+                <div className="flex items-center justify-center p-2.5 xl:p-5">
+                  <p className="text-dark dark:text-white">{user.birthdate}</p>
+                </div>
+
+                <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
+                  <p className="text-black dark:text-white">{user.teamId}hs</p>
+                </div>
+
+                <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
+                  <p
+                    className={`${
+                      user.gender == "Female"
+                        ? "text-pink-400"
+                        : "text-blue-500"
+                    }`}
+                  >
+                    {user.gender}
+                  </p>
+                </div>
               </div>
-              <p className="hidden text-black dark:text-white sm:block">
-                {brand.name}
-              </p>
-            </div>
-
-            <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className="text-black dark:text-white">{brand.visitors}K</p>
-            </div>
-
-            <div className="flex items-center justify-center p-2.5 xl:p-5">
-              <p className="text-meta-3">${brand.revenues}</p>
-            </div>
-
-            <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              <p className="text-black dark:text-white">{brand.sales}</p>
-            </div>
-
-            <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-              <p className="text-meta-5">{brand.conversion}%</p>
-            </div>
+            ))}
+        </div>
+        {dataUser.length > 9 && (
+          <div class="mt-4 text-center">
+            <button
+              onClick={() => setHiddenUsers(!hiddenUsers)}
+              class="bg-blue-500 px-3 py-1 shadow-lg shadow-gray-500/50 ¿ text-white rounded-lg text-[15px] cursor-pointer active:scale-[.97]"
+            >
+              {!hiddenUsers ? "Ver más" : "Ver menos"}
+            </button>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
