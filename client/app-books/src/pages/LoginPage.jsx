@@ -24,7 +24,7 @@ const LoginPage = () => {
     onResetForm();
   }
   return (
-    <div className="w-auto flex justify-between items-center bg-gray-50 px-10 py-20 rounded-3xl border-2 border-gray-200 ">
+    <div className="w-auto flex justify-between items-center bg-gray-50 px-10  rounded-3xl border-2 border-gray-200 ">
       <div className="  justify-center">
         <h1 className="text-4xl font-semibold">¡Bienvenido!</h1>
         <p className="font-medium text-m text-gray-500 mt-4">
@@ -72,14 +72,14 @@ const LoginPage = () => {
           </button>
         </div>
         <div className="mt-8 ">
-          <button className="w-full rounded-xl py-4 bg-orange-300 text-white text-lg font-bold">
+          <button className="w-full rounded-xl py-4 bg-buttoncolor text-yellow-400 text-lg font-bold">
             Entrar
           </button>
         </div>
         <div className="mt-8 ">
           <p>¿Todavía no tienes una cuenta?</p>
           <Link to="/signup">
-            <button>Registrarse</button>
+            <button >Registrarse</button>
           </Link>
         </div>
       </form>

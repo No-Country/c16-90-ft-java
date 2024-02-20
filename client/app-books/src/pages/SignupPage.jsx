@@ -37,6 +37,13 @@ const SignupPage = () => {
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent "
             placeholder="Enter your user name"
+            type="text"
+            name="name"
+            id="name"
+            value={name}
+            onChange={onInputChange}
+            required
+            autoComplete="off"
           />
         </div>
         <div>
@@ -45,6 +52,12 @@ const SignupPage = () => {
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent"
             placeholder="Enter your password"
             type="password"
+            name="password"
+            id="password"
+            value={password}
+            onChange={onInputChange}
+            required
+            autoComplete="off"
           />
         </div>
         <div className="mt-8 flex justify-between items-center">
@@ -59,7 +72,7 @@ const SignupPage = () => {
           </button> */}
         </div>
         <div className="mt-8 ">
-          <button className="w-full rounded-xl py-4 bg-orange-300 text-white text-lg font-bold">
+          <button className="w-full rounded-xl py-4 bg-buttoncolor text-white text-lg font-bold">
             Registrarse
           </button>
         </div>

@@ -51,6 +51,7 @@ module.exports = {
         success: "#219653",
         danger: "#D34053",
         warning: "#FFA70B",
+        buttoncolor: "#023047",
       },
       fontSize: {
         "title-xxl": ["44px", "55px"],
