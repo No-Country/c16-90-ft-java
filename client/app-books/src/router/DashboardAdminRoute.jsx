@@ -2,11 +2,10 @@ import React from "react";
 import Tables from "../pages/Tables";
 import Settings from "../pages/Settings";
 import { Route, Routes } from "react-router-dom";
-import PageTitle from "../components/Admin/PageTitle";
-import tableUser from "../components/Admin/Tables/TableUser";
+import PageTitle from "../Components/Admin/PageTitle";
 import DefaultLayout from "../layout/DefaultLayout";
-import Breadcrumb from "../components/Admin/Breadcrumbs/Breadcrumb";
-import CardDataStats from "../components/Admin/CardDataStats";
+import Breadcrumb from "../Components/Admin/Breadcrumbs/Breadcrumb";
+import CardDataStats from "../Components/Admin/CardDataStats";
 
 const pageRoutes = [
   {
