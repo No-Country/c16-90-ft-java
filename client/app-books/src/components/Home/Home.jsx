@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import SectionBooks from "/../Components/Home/SectionBooks";
-import Hero from "./Hero";
+import SectionBooks from "../Components/Home/SectionBooks";
+import Hero from "../Home/Hero";
 import Categories from "./Categories";
 import useServices from "../../services/useServices";
 import SearchForm from "./SearchForm";
