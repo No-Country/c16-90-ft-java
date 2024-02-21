@@ -1,28 +1,26 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useForm from "../hooks/useForm";
 
 const SignupPage = () => {
-
   const navigate = useNavigate();
 
-
-  const {name, password, onInputChange, onResetForm} = useForm({
-    name: '',
-    password:'',
-
+  const { name, password, onInputChange, onResetForm } = useForm({
+    name: "",
+    password: "",
   });
 
   const onSignup = (e) => {
     e.preventDefault();
-    navigate('/dashboard',{
+    navigate("/dashboard", {
       replace: true,
-      state:{
-        logged: true, 
+      state: {
+        logged: true,
         name,
       },
     });
     onResetForm();
-  }
+  };
   return (
     <div className="w-auto flex justify-between items-center bg-gray-50 px-10 py-20 rounded-3xl border-2 border-gray-200 ">
       <div className="  justify-center">
