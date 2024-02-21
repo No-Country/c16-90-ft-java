@@ -1,4 +1,4 @@
-import Breadcrumb from "../Components/Admin/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "../components/Admin/Breadcrumbs/Breadcrumb";
 import userThree from "../images/user/user-03.png";
 import DefaultLayout from "../layout/DefaultLayout";
 
