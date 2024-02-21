@@ -27,11 +27,11 @@ const Categories = ({ setCategorySelect, handleReset }) => {
         <span className=" text-2xl lg:text-3xl font-semibold ">Categorias</span>
       </h2>
 
-      <div class="mt-3 py-3 -mx-3 overflow-y-auto whitespace-no-wrap scroll-hidden">
+      <div className="mt-3 py-3 -mx-3 overflow-y-auto whitespace-no-wrap scroll-hidden">
         {category.map((items, index) => (
           <span
             key={index}
-            class="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-3 md:my-0 cursor-pointer"
+            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-3 md:my-0 cursor-pointer"
             onClick={(e) => setCategorySelect(e.target.innerText)}
           >
             {items.name}
@@ -39,7 +39,7 @@ const Categories = ({ setCategorySelect, handleReset }) => {
         ))}
         <button
           onClick={handleReset}
-          class="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
+          className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
         >
           reset
         </button>
