@@ -1,18 +1,26 @@
 import Breadcrumb from "../components/Admin/Breadcrumbs/Breadcrumb";
-import TableOne from "../components/Admin/Tables/TableOne";
+import TableUser from "../components/Admin/Tables/TableUser";
 import TableThree from "../components/Admin/Tables/TableThree";
-import TableTwo from "../components/Admin/Tables/TableTwo";
+import TableBooks from "../components/Admin/Tables/TableBooks";
 import DefaultLayout from "../layout/DefaultLayout";
 
-const Tables = () => {
+const getTableComponent = (componentType) => {
+  switch (componentType) {
+    case "userTable":
+      return <TableUser />;
+    case "bookTable":
+      return <TableBooks />;
+    default:
+      return null;
+  }
+};
+
+const Tables = ({ pageName, compontentTable, pageRouteName }) => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Tables" />
-
+      <Breadcrumb pageName={pageName} pageRouteName={pageRouteName} />
       <div className="flex flex-col gap-10">
-        <TableOne />
-        <TableTwo />
-        <TableThree />
+        {getTableComponent(compontentTable)}
       </div>
     </DefaultLayout>
   );

@@ -59,7 +59,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     >
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <NavLink to="/">
+        <NavLink to="/dashboard">
           {/* <img src={Logo} alt="Logo" /> */}
           <p className="text-white text-2xl">BOOKS APP</p>
         </NavLink>
@@ -183,7 +183,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                         <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
                           <li>
                             <NavLink
-                              to="/books/table"
+                              to="/dashboard/books/table"
                               className={({ isActive }) =>
                                 "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
                                 (isActive && "!text-white")
@@ -194,7 +194,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           </li>
                           <li>
                             <NavLink
-                              to="/books/create"
+                              to="/dashboard/books/create"
                               className={({ isActive }) =>
                                 "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
                                 (isActive && "!text-white")
@@ -213,7 +213,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
               <li>
                 <NavLink
-                  to="/users"
+                  to="/dashboard/users"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes("tables") && "bg-graydark dark:bg-meta-4"
                   }`}
