@@ -10,6 +10,7 @@ const SectionBooks = ({ books, message }) => {
           {books.map((book, index) => (
             <Cards
               key={index}
+              id={book.id}
               title={book.title}
               authors={book.authors}
               genres={book.genres}

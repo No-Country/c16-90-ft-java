@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Cards = ({ title, authors, genres, image, description }) => {
+const Cards = ({ title, authors, genres, image, description, id }) => {
   const genresArray = genres.split(",");
   return (
-    <div class="flex flex-wrap -m-4">
-      <div class="p-4">
-        <div class="bg-gray-100 p-6 rounded-lg">
+    <div class="flex flex-wrap -m-4 ">
+      <div class="p-4 ">
+        <div class="bg-gray-100 p-6 rounded-lg cursor-pointer">
           <img
             class="h-40 rounded w-full object-cover object-center mb-6"
             src={image}
@@ -22,7 +23,10 @@ const Cards = ({ title, authors, genres, image, description }) => {
             hexagon disrupt edison bulbche.
           </p>
           <div class="flex items-center flex-wrap ">
-            <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer">
+            <Link
+              class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer"
+              to={`detail/${id}`}
+            >
               Ver más
               <svg
                 class="w-4 h-4 ml-2"
@@ -36,7 +40,7 @@ const Cards = ({ title, authors, genres, image, description }) => {
                 <path d="M5 12h14"></path>
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
-            </a>
+            </Link>
             <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-1 border-gray-200">
               <svg
                 class="w-4 h-4 mr-1"
