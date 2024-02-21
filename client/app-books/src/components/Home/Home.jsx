@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SectionBooks from "./SectionBooks";
+import SectionBooks from "/../Components/Home/SectionBooks";
 import Hero from "./Hero";
 import Categories from "./Categories";
 import useServices from "../../services/useServices";
