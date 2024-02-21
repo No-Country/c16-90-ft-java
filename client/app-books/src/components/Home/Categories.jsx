@@ -22,28 +22,29 @@ const Categories = ({ setCategorySelect, handleReset }) => {
   ];
 
   return (
-    <>
+    <div className="container px-5">
       <h2 className="text-start my-4">
         <span className=" text-2xl lg:text-3xl font-semibold ">Categorias</span>
       </h2>
-      <ul className="flex gap-4 flex-wrap">
+
+      <div class="mt-3 py-3 -mx-3 overflow-y-auto whitespace-no-wrap scroll-hidden">
         {category.map((items, index) => (
-          <li
+          <span
             key={index}
-            className="py-2 px-3 text-sm bg-muted text-white rounded-md flex items-center gap-x-1 bg-yellow-500 transition cursor-pointer hover:bg-slate-400"
+            class="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-3 md:my-0 cursor-pointer"
             onClick={(e) => setCategorySelect(e.target.innerText)}
           >
             {items.name}
-          </li>
+          </span>
         ))}
         <button
           onClick={handleReset}
-          className="py-2 px-3 text-sm bg-muted rounded-md flex items-center gap-x-1 bg-slate-200 transition cursor-pointer hover:bg-slate-400"
+          class="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
         >
           reset
         </button>
-      </ul>
-    </>
+      </div>
+    </div>
   );
 };
 

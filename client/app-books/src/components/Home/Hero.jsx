@@ -3,37 +3,38 @@ import bookSvg from "/books.svg";
 
 const Hero = () => {
   return (
-    <header className="bg-white ">
-      <div className="container px-6 py-16 mx-auto">
-        <div className="items-center lg:flex">
-          <div className="w-full lg:w-1/2">
-            <div className="lg:max-w-lg">
-              <h1 className="text-3xl font-semibold text-gray-800  lg:text-4xl text-start">
-                Mejor lugar para descubrir <br /> tus{" "}
-                <span className="text-[#F3B331]">nuevas historias</span>
-              </h1>
-
-              <p className="mt-3 text-gray-600 text-start">
-                Encuentra las mejores obras literarias que te transportarán a
-                lugares inimaginables.
-              </p>
-
-              <button className="w-full px-5 py-2 mt-6 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-[#F3B331] rounded-lg lg:w-auto focus:outline-none  justify-start flex">
-                EXPLORAR LIBROS
-              </button>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
-            <img
-              className="w-full h-full max-w-md"
-              src={bookSvg}
-              alt="email illustration vector art"
-            />
+    <section class="text-gray-600 body-font">
+      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+            Before they sold out
+            <br class="hidden lg:inline-block" />
+            readymade gluten
+          </h1>
+          <p class="mb-8 leading-relaxed">
+            Copper mug try-hard pitchfork pour-over freegan heirloom neutra air
+            plant cold-pressed tacos poke beard tote bag. Heirloom echo park
+            mlkshk tote bag selvage hot chicken authentic tumeric truffaut
+            hexagon try-hard chambray.
+          </p>
+          <div class="flex justify-center">
+            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+              Button
+            </button>
+            <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+              Button
+            </button>
           </div>
         </div>
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <img
+            class="object-cover object-center rounded"
+            alt="hero"
+            src="https://dummyimage.com/720x600"
+          />
+        </div>
       </div>
-    </header>
+    </section>
   );
 };
 

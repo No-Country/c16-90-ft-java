@@ -2,31 +2,36 @@ import React from "react";
 
 const SearchForm = ({ currentValue, setCurrentValue, handleSubmit }) => {
   return (
-    <form className="flex w-full my-10" onSubmit={handleSubmit}>
+    <form
+      className="border-b-blue-600 focus-within:border-none focus-within:ring focus-within:ring-offset-2 my-10 flex h-10 items-center justify-start border-b-2 bg-gray-100 leading-4 ring-blue-600 sm:w-96"
+      onSubmit={handleSubmit}
+    >
       <input
-        className="flex h-10 border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full  rounded-lg rounded-r-none focus-visible:ring-transparent pr-8"
-        placeholder="Search book - authors"
+        placeholder="Search"
+        class="peer ml-2 flex-grow bg-transparent text-gray-500 outline-none"
         value={currentValue}
         onChange={(e) => setCurrentValue(e.target.value)}
       />
       <button
-        className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-400 text-white hover:bg-sky-700/80 h-10 px-4 py-2 rounded-l-none"
-        type="submit"
+        type="button"
+        class="peer-focus:mr-2 z-20 cursor-pointer text-blue-600 outline-none duration-150 hover:scale-125"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="lucide lucide-search h-4 w-4"
-        >
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.3-4.3"></path>
+        <svg class="h-6 w-6 stroke-2" viewBox="0 0 32 32" fill="none">
+          <circle
+            cx="15"
+            cy="14"
+            r="8"
+            stroke="currentColor"
+            fill="transparent"
+          ></circle>
+          <line
+            x1="21.1514"
+            y1="19.7929"
+            x2="26.707"
+            y2="25.3484"
+            stroke="currentColor"
+            fill="transparent"
+          ></line>
         </svg>
       </button>
     </form>

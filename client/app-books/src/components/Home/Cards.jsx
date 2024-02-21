@@ -3,52 +3,69 @@ import React from "react";
 const Cards = ({ title, authors, genres, image, description }) => {
   const genresArray = genres.split(",");
   return (
-    <div className="flex justify-center h-full">
-      <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my- h-full">
-        <img
-          className="relative w-full aspect-video rounded-md overflow-hidden object-cover"
-          src={image}
-          alt={title}
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
-        />
-
-        <div className="flex items-center justify-center px-6 py-3 bg-gray-900 text-center">
-          <h1 className=" text-white font-semibold text-lg text-center">
+    <div class="flex flex-wrap -m-4">
+      <div class="p-4">
+        <div class="bg-gray-100 p-6 rounded-lg">
+          <img
+            class="h-40 rounded w-full object-cover object-center mb-6"
+            src={image}
+            alt={title}
+          />
+          <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+            {authors}
+          </h3>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
             {title}
-          </h1>
-        </div>
-        <div className="py-4 px-6">
-          <div className="flex flex-wrap gap-2 mt-2">
-            {genresArray.map((genre, index) => (
-              <p
-                key={index}
-                className="py-2 px-3 text-sm bg-muted flex items-center gap-x-1 bg-gray-400 transition cursor-pointer hover:bg-slate-400"
+          </h2>
+          <p class="leading-relaxed text-base">
+            Fingerstache flexitarian street art 8-bit waistcoat. Distillery
+            hexagon disrupt edison bulbche.
+          </p>
+          <div class="flex items-center flex-wrap ">
+            <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer">
+              Ver más
+              <svg
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                #{genre}
-              </p>
-            ))}
-          </div>
-
-          <div className="flex items-center mt-4 text-gray-700">
-            <svg className="h-6 w-6 fill-current" viewBox="0 0 512 512">
-              <path d="M239.208 343.937c-17.78 10.103-38.342 15.876-60.255 15.876-21.909 0-42.467-5.771-60.246-15.87C71.544 358.331 42.643 406 32 448h293.912c-10.639-42-39.537-89.683-86.704-104.063zM178.953 120.035c-58.479 0-105.886 47.394-105.886 105.858 0 58.464 47.407 105.857 105.886 105.857s105.886-47.394 105.886-105.857c0-58.464-47.408-105.858-105.886-105.858zm0 186.488c-33.671 0-62.445-22.513-73.997-50.523H252.95c-11.554 28.011-40.326 50.523-73.997 50.523z" />
-              <g>
-                <path d="M322.602 384H480c-10.638-42-39.537-81.691-86.703-96.072-17.781 10.104-38.343 15.873-60.256 15.873-14.823 0-29.024-2.654-42.168-7.49-7.445 12.47-16.927 25.592-27.974 34.906C289.245 341.354 309.146 364 322.602 384zM306.545 200h100.493c-11.554 28-40.327 50.293-73.997 50.293-8.875 0-17.404-1.692-25.375-4.51a128.411 128.411 0 0 1-6.52 25.118c10.066 3.174 20.779 4.862 31.895 4.862 58.479 0 105.886-47.41 105.886-105.872 0-58.465-47.407-105.866-105.886-105.866-37.49 0-70.427 19.703-89.243 49.09C275.607 131.383 298.961 163 306.545 200z" />
-              </g>
-            </svg>
-            <h1 className="px-2 text-sm">{authors}</h1>
-          </div>
-          <div className="flex items-center mt-4 text-gray-700">
-            <svg className="h-6 w-6 fill-current" viewBox="0 0 512 512">
-              <path d="M256 32c-88.004 0-160 70.557-160 156.801C96 306.4 256 480 256 480s160-173.6 160-291.199C416 102.557 344.004 32 256 32zm0 212.801c-31.996 0-57.144-24.645-57.144-56 0-31.357 25.147-56 57.144-56s57.144 24.643 57.144 56c0 31.355-25.148 56-57.144 56z" />
-            </svg>
-            <h1 className="px-2 text-sm">California</h1>
-          </div>
-          <div className="flex items-center mt-4 text-gray-700">
-            <svg className="h-6 w-6 fill-current" viewBox="0 0 512 512">
-              <path d="M437.332 80H74.668C51.199 80 32 99.198 32 122.667v266.666C32 412.802 51.199 432 74.668 432h362.664C460.801 432 480 412.802 480 389.333V122.667C480 99.198 460.801 80 437.332 80zM432 170.667L256 288 80 170.667V128l176 117.333L432 128v42.667z" />
-            </svg>
-            <h1 className="px-2 text-sm">patterson@example.com</h1>
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+            <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-1 border-gray-200">
+              <svg
+                class="w-4 h-4 mr-1"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              1.2K
+            </span>
+            <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+              <svg
+                class="w-4 h-4 mr-1"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+              </svg>
+              6
+            </span>
           </div>
         </div>
       </div>
