@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../Components/SearchBar";
 import LoginPage from "../pages/LoginPage";
-import Home from "../components/Home/Home";
+import Home from "../Components/Home/Home";
 import SignupPage from "../pages/SignupPage";
 import DashboardAdminRoute from "./DashboardAdminRoute";
-import CardDetails from "../components/CardDetails";
+import CardDetails from "../Components/CardDetails";
 
 const SearchBarRoute = () => {
   return (
