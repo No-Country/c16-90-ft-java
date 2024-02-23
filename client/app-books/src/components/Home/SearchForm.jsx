@@ -8,15 +8,15 @@ const SearchForm = ({ currentValue, setCurrentValue, handleSubmit }) => {
     >
       <input
         placeholder="Search"
-        class="peer ml-2 flex-grow bg-transparent text-gray-500 outline-none"
+        className="peer ml-2 flex-grow bg-transparent text-gray-500 outline-none"
         value={currentValue}
         onChange={(e) => setCurrentValue(e.target.value)}
       />
       <button
         type="button"
-        class="peer-focus:mr-2 z-20 cursor-pointer text-blue-600 outline-none duration-150 hover:scale-125"
+        className="peer-focus:mr-2 z-20 cursor-pointer text-blue-600 outline-none duration-150 hover:scale-125"
       >
-        <svg class="h-6 w-6 stroke-2" viewBox="0 0 32 32" fill="none">
+        <svg className="h-6 w-6 stroke-2" viewBox="0 0 32 32" fill="none">
           <circle
             cx="15"
             cy="14"

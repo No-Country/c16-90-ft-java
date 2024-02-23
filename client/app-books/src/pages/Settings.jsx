@@ -102,7 +102,7 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  <div class="mb-5.5">
+                  <div className="mb-5.5">
                     <label
                       className="mb-3 block text-sm font-medium text-black dark:text-white"
                       htmlFor="Username"

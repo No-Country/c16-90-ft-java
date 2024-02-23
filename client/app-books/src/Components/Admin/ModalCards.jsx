@@ -52,13 +52,13 @@ const ModalCards = ({ active, book, onClose }) => {
                   src={book.image_url}
                   className="h-70 w-full object-cover rounded-t-lg"
                 />
-                <div class="p-5">
+                <div className="p-5">
                   <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                       Noteworthy technology acquisitions 2021
                     </h5>
                   </a>
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     Here are the biggest enterprise technology acquisitions of
                     2021 so far, in reverse chronological order.
                   </p>

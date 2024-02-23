@@ -69,7 +69,7 @@ const TableOne = () => {
 
         <button
           type="button"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           onClick={handleButtonAct}
         >
           Actualizar
@@ -152,10 +152,10 @@ const TableOne = () => {
             ))}
         </div>
         {dataUser.length > 9 && (
-          <div class="mt-4 text-center">
+          <div className="mt-4 text-center">
             <button
               onClick={() => setHiddenUsers(!hiddenUsers)}
-              class="bg-blue-500 px-3 py-1 shadow-lg shadow-gray-500/50 ¿ text-white rounded-lg text-[15px] cursor-pointer active:scale-[.97]"
+              className="bg-blue-500 px-3 py-1 shadow-lg shadow-gray-500/50 ¿ text-white rounded-lg text-[15px] cursor-pointer active:scale-[.97]"
             >
               {!hiddenUsers ? "Ver más" : "Ver menos"}
             </button>

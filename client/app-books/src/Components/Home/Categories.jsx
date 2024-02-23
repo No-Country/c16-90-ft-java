@@ -22,28 +22,33 @@ const Categories = ({ setCategorySelect, handleReset }) => {
   ];
 
   return (
-    <div className="container px-5">
+    <div className="container px-5 flex gap-12 items-center mx-auto">
       <h2 className="text-start my-4">
         <span className=" text-2xl lg:text-3xl font-semibold ">Categorias</span>
       </h2>
 
-      <div class="mt-3 py-3 -mx-3 overflow-y-auto whitespace-no-wrap scroll-hidden">
+      <select
+        name=""
+        id=""
+        className=" py-3 -mx-3"
+        onChange={(e) => setCategorySelect(e.target.value)}
+      >
         {category.map((items, index) => (
-          <span
+          <option
             key={index}
-            class="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-3 md:my-0 cursor-pointer"
-            onClick={(e) => setCategorySelect(e.target.innerText)}
+            className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-3 md:my-0 cursor-pointer"
+            value={items.name}
           >
             {items.name}
-          </span>
+          </option>
         ))}
-        <button
-          onClick={handleReset}
-          class="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
-        >
-          reset
-        </button>
-      </div>
+      </select>
+      <button
+        onClick={handleReset}
+        className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
+      >
+        reset
+      </button>
     </div>
   );
 };
