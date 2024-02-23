@@ -17,15 +17,10 @@
 <h2>Team:</h2>
 <h2> :computer: FrontEnd:</h2>
 <Br>
-<h2>Technologies</h2>
-
+<h2>Technologies:</h2>
 <img src="https://skillicons.dev/icons?i=js,html,css,react,vite,tailwind" />
- 
 <Br>
-
-
 <h2>Tasks:</h2>
-
 
 - Develop the web view using React whit JavaScript.
 - Add routes in the web using ReactRouterDom.
@@ -44,35 +39,36 @@
  <a href="https://www.linkedin.com/in/ariadnamorenol/" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a>  <a href="https://github.com/AriadnaMorenoL" target="_blank"><img src="https://skillicons.dev/icons?i=github" /> </a> 
 
  <hr>
+ 
 <h2> :computer: BackEnd:</h2>
 <Br>
-<h2>Technologies</h2>
-
+<h2>Technologies:</h2>
 <img src="https://skillicons.dev/icons?i=java,spring,mysql" />
- 
 <Br>
-
-
 <h2>Tasks:</h2>
-
 
 - Development of Rest Api with Java and Spring Boot.
 - Validations with Hybernate Validator.
 - MySql Database.
 
 <h2>Developers:</h2>
-
-
+|   Marlon Montenegro   |
+<Br>
+<a href="   " target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a>
 <hr>
 <h2> :computer: QA/test:</h2>
 <Br>
 <h2>Tasks:</h2>
 
-
 - Development of functional requirements.
 - Creation of the test plan.
 - User story acceptance criteria.
 
+<h2>QA analyst:</h2>
+
+|   Rebeca Padilla   |
+<Br>
+<a href="   " target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a>
 
 
 
