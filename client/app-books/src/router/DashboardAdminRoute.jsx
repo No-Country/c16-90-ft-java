@@ -7,6 +7,25 @@ import tableUser from "../Components/Admin/Tables/TableUser";
 import DefaultLayout from "../layout/DefaultLayout";
 import Breadcrumb from "../Components/Admin/Breadcrumbs/Breadcrumb";
 import CardDataStats from "../Components/Admin/CardDataStats";
+import FormReu from "../Components/FormReu";
+import AdminButtonsSession from "../Components/Admin/AdminButtonsSession";
+
+const fieldsRegister = [
+  { name: "username", label: "Username" },
+  { name: "email", label: "Email Address", type: "email" },
+  { name: "password", label: "Password", type: "password" },
+  {
+    name: "passwordConfirmation",
+    label: "Password Confirmation",
+    type: "password",
+  },
+  { name: "secretKey", label: "Enter secret key", type: "password" },
+];
+
+const fieldsLogin = [
+  { name: "email", label: "Your email", type: "email" },
+  { name: "password", label: "Your password", type: "password" },
+];
 
 const pageRoutes = [
   {
@@ -158,6 +177,38 @@ const pageRoutes = [
       <>
         <PageTitle title="Settings | TailAdmin - Tailwind CSS Admin Dashboard Template" />
         <Settings />
+      </>
+    ),
+  },
+  {
+    path: "admin",
+    element: (
+      <>
+        <AdminButtonsSession title="Welcome" />
+      </>
+    ),
+  },
+  {
+    path: "admin/signin",
+    element: (
+      <>
+        <FormReu
+          formTitle="Login"
+          fields={fieldsLogin || []}
+          buttonTxt="Login to your account"
+        />
+      </>
+    ),
+  },
+  {
+    path: "admin/signup",
+    element: (
+      <>
+        <FormReu
+          formTitle="Register"
+          fields={fieldsRegister || []}
+          buttonTxt="Register your account"
+        />
       </>
     ),
   },
