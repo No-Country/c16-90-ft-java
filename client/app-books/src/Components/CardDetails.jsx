@@ -80,14 +80,16 @@ const CardDetails = () => {
                 </svg>
               </button>
             </div>
-            <CommentSection />
           </div>
           <img
             alt={dataBook && dataBook.title}
-            class="lg:w-1/2 w-full lg:h-[50%] h-64 object-cover object-center rounded"
+            class="lg:w-1/2 w-full  h-[600px] object-cover object-center rounded "
             src={dataBook && dataBook.image_url}
           />
         </div>
+      </div>
+      <div className="container px-30 pb-[6rem] mx-auto">
+        <CommentSection />
       </div>
     </section>
   );

@@ -1,109 +1,66 @@
-// Importar los módulos necesarios de React y Tailwind CSS
-import React, { useState } from "react";
-import "tailwindcss/tailwind.css"; // Asegúrate de haber configurado correctamente Tailwind CSS en tu proyecto
+import React from "react";
 
-// Componente principal
-function Comments() {
-  // Estado para almacenar los comentarios
-  const [comments, setComments] = useState([]);
-
-  // Estado para almacenar el valor del input
-  const [inputValue, setInputValue] = useState("");
-
-  // Manejar el evento al presionar una tecla en el input
-  const handleKeyDown = (e, currentComment) => {
-    if (e.key === "Enter" && inputValue.trim() !== "") {
-      // Crear un nuevo comentario
-      const newComment = {
-        text: inputValue,
-        likes: 0,
-        responses: [],
-      };
-
-      // Actualizar el estado de los comentarios
-      setComments((prevComments) => {
-        if (currentComment === null) {
-          // Si no hay comentario actual, agregar el nuevo comentario al inicio
-          return [newComment, ...prevComments];
-        } else {
-          // Si hay un comentario actual, agregar el nuevo comentario a sus respuestas
-          currentComment.responses = [newComment, ...currentComment.responses];
-          return [...prevComments];
-        }
-      });
-
-      // Limpiar el valor del input
-      setInputValue("");
-
-      // Enfocar el input
-      document.getElementById("input").focus();
-    }
-  };
-
-  // Manejar el cambio en el valor del input
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  // Renderizar comentarios recursivamente
-  const renderComments = (arr) => {
-    return arr.map((comment, index) => (
-      <div key={index} className="comment-container">
-        <div>{comment.text}</div>
-        <div className="actions-container">
-          <button onClick={() => handleReplyClick(comment)}>Reply</button>
-          <button onClick={() => handleLikeClick(comment)}>{`${
-            comment.likes > 0 ? `${comment.likes} likes` : "likes"
-          }`}</button>
-        </div>
-        <div className="responses-container">
-          {comment.responses.length > 0 && renderComments(comment.responses)}
-        </div>
-      </div>
-    ));
-  };
-
-  // Manejar el clic en el botón "Reply"
-  const handleReplyClick = (comment) => {
-    // Clonar el input y configurar su evento
-    const newInput = document.getElementById("input").cloneNode(true);
-    newInput.value = "";
-    newInput.focus();
-    newInput.addEventListener("keydown", (e) => handleKeyDown(e, comment));
-
-    // Insertar el nuevo input antes del contenedor de respuestas
-    comment.responses.unshift({
-      text: "", // Puedes dejar el texto vacío o poner un texto predeterminado
-      likes: 0,
-      responses: [],
-    });
-    setComments([...comments]);
-  };
-
-  // Manejar el clic en el botón "Like"
-  const handleLikeClick = (comment) => {
-    // Incrementar el contador de likes
-    comment.likes++;
-    setComments([...comments]);
-  };
-
+const Comments = () => {
   return (
-    <div className="w-3/4 mx-auto mt-10">
-      <div id="comments-container" className="flex flex-col gap-5">
-        {renderComments(comments)}
-      </div>
-      <div className="input-container">
-        <input
-          id="input"
-          className="input"
-          type="text"
-          value={inputValue}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-        />
+    <div class="bg-gray-100 flex items-center justify-center">
+      <div class="px-10">
+        <div class="bg-white w-full rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
+          <div class="mt-4">
+            <div className="flex items-center gap-4">
+              <img
+                class="w-12 h-12 rounded-full"
+                src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1036&q=80"
+                alt=""
+              />
+              <h1 class="text-lg text-gray-700 font-semibold hover:underline cursor-pointer">
+                John Lucas •
+              </h1>
+              <div class="flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-yellow-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-yellow-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-yellow-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-yellow-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+            <p class="mt-4 text-md text-gray-600">
+              But I must explain to you how all this mistaken idea of denouncing
+              pleasure and praising pain was born and I will give you a complete
+              account of the system, and expound the actual teachings of the
+              great explorer of the truth, the master-builder of human happines.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Comments;

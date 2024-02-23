@@ -55,17 +55,16 @@ const SearchBar = () => {
 
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0 flex-1">
               <NavLink
-                to="/login"
-                className="px-7 py-3 text-base font-medium text-dark hover:text-primary dark:text-white"
-              >
-                Iniciar sesión
-              </NavLink>
-
-              <NavLink
                 to="/signup"
                 className="rounded-lg bg-primary px-7 py-3 text-base font-medium text-white hover:bg-opacity-90"
               >
                 Registrarse
+              </NavLink>
+              <NavLink
+                to="/login"
+                className="px-7 py-3 text-base font-medium text-dark hover:text-primary dark:text-white"
+              >
+                Iniciar sesión
               </NavLink>
             </div>
           </div>
