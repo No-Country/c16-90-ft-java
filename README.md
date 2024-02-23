@@ -64,8 +64,15 @@
 
 
 <hr>
-<h2> :computer: QA:</h2>
+<h2> :computer: QA/test:</h2>
 <Br>
+<h2>Tasks:</h2>
+
+
+- Development of functional requirements.
+- Creation of the test plan.
+- User story acceptance criteria.
+
 
 
 
