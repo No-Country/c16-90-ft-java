@@ -3,31 +3,56 @@ import bookSvg from "/books.svg";
 
 const Hero = () => {
   return (
-    <section className="text-gray-600 body-font">
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-5xl text-3xl mb-4 font-medium text-gray-900">
-            Sumérgete en el fascinante mundo de la literatura.
-          </h1>
-          <p className="mb-8 leading-relaxed text-xl">
-            Explora sin límites, descubre nuevas historias y comparte tus
-            experiencias literarias. Desde clásicos atemporales hasta las
-            últimas novedades, nuestra plataforma te conecta con recomendaciones
-            personalizadas. Haz que cada página cuente y únete a nuestra
-            comunidad de amantes de la lectura. Descarga ahora y comienza tu
-            viaje en el apasionante universo de las palabras. ¡Lee, califica,
-            comparte y vive la magia de los libros con nosotros!
+    <div className="relative bg-boxdark-2">
+      <div className="absolute inset-x-0 bottom-0">
+        <svg
+          viewBox="0 0 224 12"
+          fill="currentColor"
+          className="w-full -mb-1 text-white"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z" />
+        </svg>
+      </div>
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center">
+          <h2 className="mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-6xl sm:leading-none">
+            Book Journey,
+            <br className="hidden md:block" />
+            explore a world of book{" "}
+            <span className="relative inline-block">
+              recommendations. <div className="w-full h-3 -mt-3 bg-[#828487]" />
+            </span>
+          </h2>
+          <p className="mb-6 text-base font-thin tracking-wide text-white md:text-lg">
+            Discover the magic of each story, navigate through our virtual
+            universe. Book Journey, the platform that connects, where the
+            passion for reading meets.
           </p>
-        </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          <img
-            className="object-cover object-center rounded"
-            alt="hero"
-            src={bookSvg}
-          />
+
+          <p className="max-w-md mb-10 text-xs font-thin tracking-wide text-white sm:text-sm sm:mx-auto md:mb-16">
+            Find literary gems with ease, browse, discover, immerse in the web.
+            Authentic reviews, honest opinions, Book Journey, your guide in the
+            literary journey.
+          </p>
+          <a
+            href="#books"
+            aria-label="Scroll down"
+            className="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="currentColor"
+            >
+              <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z" />
+            </svg>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

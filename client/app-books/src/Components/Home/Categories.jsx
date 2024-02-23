@@ -24,13 +24,15 @@ const Categories = ({ setCategorySelect, handleReset }) => {
   return (
     <div className="container px-5 flex gap-12 items-center mx-auto">
       <h2 className="text-start my-4">
-        <span className=" text-2xl lg:text-3xl font-semibold ">Categorias</span>
+        <span className=" text-2xl lg:text-3xl font-semibold ">
+          Categories <div className="w-full h-3 -mt-3 " />
+        </span>
       </h2>
 
       <select
         name=""
         id=""
-        className=" py-3 -mx-3"
+        className=" bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition"
         onChange={(e) => setCategorySelect(e.target.value)}
       >
         {category.map((items, index) => (
@@ -45,7 +47,7 @@ const Categories = ({ setCategorySelect, handleReset }) => {
       </select>
       <button
         onClick={handleReset}
-        className="text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline mx-4 md:my-0"
+        className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition"
       >
         reset
       </button>

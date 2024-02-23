@@ -88,8 +88,10 @@ const CardDetails = () => {
           />
         </div>
       </div>
-      <div className="container px-30 pb-[6rem] mx-auto">
-        <CommentSection />
+      <div className="bg-boxdark-2">
+        <div className="container px-30 pb-[6rem] mx-auto bg-boxdark-2 pt-20">
+          <CommentSection />
+        </div>
       </div>
     </section>
   );

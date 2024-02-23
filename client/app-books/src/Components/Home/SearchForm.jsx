@@ -3,18 +3,18 @@ import React from "react";
 const SearchForm = ({ currentValue, setCurrentValue, handleSubmit }) => {
   return (
     <form
-      className="border-b-blue-600 focus-within:border-none focus-within:ring focus-within:ring-offset-2 my-10 flex h-10 items-center justify-start border-b-2 bg-gray-100 leading-4 ring-blue-600 sm:w-96"
+      className="border-b-boxdark focus-within:border-none focus-within:ring focus-within:ring-offset-2 my-10 flex h-10 items-center justify-start border-b-2 bg-gray-100 leading-4 ring-boxdark-2 sm:w-96"
       onSubmit={handleSubmit}
     >
       <input
-        placeholder="Search"
+        placeholder="Search by author or book"
         className="peer ml-2 flex-grow bg-transparent text-gray-500 outline-none"
         value={currentValue}
         onChange={(e) => setCurrentValue(e.target.value)}
       />
       <button
         type="button"
-        className="peer-focus:mr-2 z-20 cursor-pointer text-blue-600 outline-none duration-150 hover:scale-125"
+        className="peer-focus:mr-2 z-20 cursor-pointer text-boxdark-2 outline-none duration-150 hover:scale-125"
       >
         <svg className="h-6 w-6 stroke-2" viewBox="0 0 32 32" fill="none">
           <circle

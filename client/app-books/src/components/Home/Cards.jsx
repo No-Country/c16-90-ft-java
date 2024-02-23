@@ -12,7 +12,7 @@ const Cards = ({ title, authors, genres, image, description, id }) => {
             src={image}
             alt={title}
           />
-          <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
+          <h3 className="tracking-widest text-[#5A5A5A] text-xs font-medium title-font">
             {authors}
           </h3>
           <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
@@ -22,9 +22,9 @@ const Cards = ({ title, authors, genres, image, description, id }) => {
             Fingerstache flexitarian street art 8-bit waistcoat. Distillery
             hexagon disrupt edison bulbche.
           </p>
-          <div className="flex items-center flex-wrap ">
+          <div className="flex items-center flex-wrap mt-4">
             <Link
-              className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer"
+              className="text-boxdark-2 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer"
               to={`detail/${id}`}
             >
               Ver más
