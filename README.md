@@ -54,7 +54,12 @@
 <h2>Developers:</h2>
 |   Marlon Montenegro   |
 <Br>
-<a href="   " target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a>
+<a href="https://www.linkedin.com/in/montenergopaz/" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a> <a href="https://github.com/MarlonMontenegro/MarlonMontenegro" target="_blank"><img src="https://skillicons.dev/icons?i=github" /> </a> 
+<Br>
+<Br>
+|   Anderson Maldonado  |
+<Br>
+<a href="https://www.linkedin.com/in/anderson-maldonado-alvis/" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a>  <a href="https://github.com/AndersonMal" target="_blank"><img src="https://skillicons.dev/icons?i=github" /> </a> 
 <hr>
 <h2> :computer: QA/test:</h2>
 <Br>
@@ -68,7 +73,7 @@
 
 |   Rebeca Padilla   |
 <Br>
-<a href="   " target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a>
+<a href="https://www.linkedin.com/in/rebecapadilla/" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" /> </a>
 
 
 
