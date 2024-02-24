@@ -9,6 +9,8 @@ import Breadcrumb from "../Components/Admin/Breadcrumbs/Breadcrumb";
 import CardDataStats from "../Components/Admin/CardDataStats";
 import FormReu from "../Components/FormReu";
 import AdminButtonsSession from "../Components/Admin/AdminButtonsSession";
+import Login from "../Components/Admin/Auth/Login";
+import Register from "../Components/Admin/Auth/Register";
 
 const fieldsRegister = [
   { name: "username", label: "Username" },
@@ -192,11 +194,7 @@ const pageRoutes = [
     path: "admin/signin",
     element: (
       <>
-        <FormReu
-          formTitle="Login"
-          fields={fieldsLogin || []}
-          buttonTxt="Login to your account"
-        />
+        <Login />
       </>
     ),
   },
@@ -204,11 +202,7 @@ const pageRoutes = [
     path: "admin/signup",
     element: (
       <>
-        <FormReu
-          formTitle="Register"
-          fields={fieldsRegister || []}
-          buttonTxt="Register your account"
-        />
+        <Register />
       </>
     ),
   },
