@@ -1,8 +1,15 @@
 import React from "react";
+import { useAuth } from "../context/AuthUserProvider";
 
 const Comments = () => {
+  const { userPrueba } = useAuth();
+
   return (
-    <div className="bg-gray-100 flex items-center justify-center">
+    <div
+      className={`bg-gray-100 flex items-center justify-center ${
+        userPrueba ? "" : "blur-md"
+      }`}
+    >
       <div className="px-10">
         <div className="bg-white w-full rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
           <div className="mt-4">

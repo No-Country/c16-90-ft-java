@@ -40,7 +40,7 @@ const SearchBar = () => {
         <header className="text-gray-600 body-font border-b-2 border-graydark">
           <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <Link
-              className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+              className="hidden sm:flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
               to={"/"}
             >
               <img
@@ -50,7 +50,7 @@ const SearchBar = () => {
               />
             </Link>
 
-            <div className="hidden justify-end pr-16 sm:flex lg:pr-0 flex-1">
+            <div className="mx-auto flex justify-center items-center sm:justify-end sm:pr-16 sm:flex lg:pr-0 sm:flex-1">
               <NavLink
                 to="/signup"
                 className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90"

@@ -1,6 +1,8 @@
 import React from "react";
+import { useAuth } from "../context/AuthUserProvider";
 
 const FormComent = () => {
+  const { userPrueba } = useAuth();
   return (
     <form className="bg-white px-10 py-10 rounded-lg mx-10 shadow-md">
       <h3 className="text-lg font-bold mb-2">Add a comment</h3>
@@ -13,11 +15,13 @@ const FormComent = () => {
           id="comment"
           rows="3"
           placeholder="Enter your comment"
+          disabled={!userPrueba}
         ></textarea>
       </div>
       <button
         className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="submit"
+        disabled={!userPrueba}
       >
         Submit
       </button>
