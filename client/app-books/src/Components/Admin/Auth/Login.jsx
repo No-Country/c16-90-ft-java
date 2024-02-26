@@ -32,7 +32,6 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-
     try {
       const response = await adminSignin(admin);
       if (response.status === 200) {
@@ -146,7 +145,7 @@ const Login = () => {
           </button>
         </div>
       )}
-      <form className="space-y-6" action="#">
+      <form className="space-y-6" action="#" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-6 mt-4">
           <label htmlFor="email" className="text-gray-700 dark:text-gray-200">
             Your email
@@ -211,7 +210,7 @@ const Login = () => {
         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
           Not registered?{" "}
           <Link
-            to="signup"
+            to="/admin/signup"
             className="text-blue-700 hover:underline dark:text-blue-500"
             onClick={toggleForm}
           >

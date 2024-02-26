@@ -33,6 +33,7 @@ const Register = () => {
       confirmPassword: data.confirmPassword,
       secret: data.secret,
     };
+
     try {
       const response = await adminSignup(admin);
       if (response.status === 200) {
@@ -288,7 +289,7 @@ const Register = () => {
         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
           Have an account?{" "}
           <Link
-            to="signin"
+            to="/admin/signin"
             className="text-blue-700 hover:underline dark:text-blue-500"
             onClick={toggleForm}
           >

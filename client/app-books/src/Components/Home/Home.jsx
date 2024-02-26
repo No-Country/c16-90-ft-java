@@ -65,7 +65,7 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <nav className="max-w-[1536px] mx-auto flex gap-2 border-t-2 py-8">
+      <nav className="max-w-[1536px] mx-auto flex flex-col md:flex-row gap-2 border-t-2 py-8 sm:mx-6 xl:mx-0 2xl:mx-auto">
         <Categories
           setCategorySelect={setCategorySelect}
           handleReset={handleReset}
