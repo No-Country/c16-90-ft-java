@@ -1,13 +1,19 @@
 import React, {useState} from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineLock, AiOutlineUnlock } from 'react-icons/ai';
+
 
 const FormPage = ({formTitle, fields, buttonTxt}) => {
 
 
   const navigate = useNavigate();
   const { register, formState: { errors }, handleSubmit } = useForm();
+  const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const onSubmit =  (data) => {
     // Realiza cualquier acción necesaria con los datos
     console.log(data);
@@ -26,8 +32,11 @@ const FormPage = ({formTitle, fields, buttonTxt}) => {
       <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
         {fields.map((field) => (
           <div key={field.name} className="mb-6 relative">
-            <div className={`absolute top-1/2 -translate-y-1/2 right-3 flex items-center pl-3 pointer-events-none text-3xl`}>
-              {field.icon}
+            <div 
+            onClick={field.type === 'password' ? togglePasswordVisibility : undefined}
+            className={`absolute top-1/2 -translate-y-1/2 right-3 flex items-center pl-3 pointer-events-none text-3xl`}>
+            {field.type === 'password' ? (showPassword ? <AiOutlineUnlock /> : <AiOutlineLock />) : field.icon}
+
             </div>
             <input
               placeholder={field.placeholder}

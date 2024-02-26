@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { AiOutlineMail, AiOutlineLock, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineLock, AiOutlineUser, AiOutlineUnlock } from "react-icons/ai";
 
 
 const SearchBar = lazy(() => import("../Components/SearchBar"));
@@ -49,7 +49,7 @@ const fieldsSignup =[
     name: 'password', 
     type:'password', 
     placeholder: 'Password', 
-    icon:<AiOutlineLock/>, 
+    
     validation: {
       required: 'Password required',
       minLength: {
@@ -65,7 +65,7 @@ const fieldsSignup =[
     name: 'passwordConfirmation', 
     type: 'pasword',
     placeholder: 'Confirm password', 
-    icon:<AiOutlineLock/>, 
+    
     validation: {
     required: 'This is required',
     validate: (value, { password }) => value === password || 'The passwords do not match',
@@ -89,7 +89,7 @@ const fieldsLogin = [
     name: 'password', 
     type:'password', 
     placeholder: 'Password', 
-    icon:<AiOutlineLock/>, 
+    
     validation: {
       required: 'Password required',
       minLength: {
