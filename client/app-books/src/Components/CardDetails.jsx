@@ -90,7 +90,7 @@ const CardDetails = () => {
       </div>
       <div className="bg-boxdark-2">
         <div className="container px-30 pb-[6rem] mx-auto bg-boxdark-2 pt-20">
-          <CommentSection />
+          <CommentSection bookId={id} />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../context/AuthUserProvider";
 
-const Comments = () => {
+const Comments = ({ comments }) => {
   const { userPrueba } = useAuth();
 
   return (
@@ -10,7 +10,7 @@ const Comments = () => {
         userPrueba ? "" : "blur-md"
       }`}
     >
-      <div className="px-10">
+      <div className="px-10 max-w-[1300px] break-words w-full">
         <div className="bg-white w-full rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
           <div className="mt-4">
             <div className="flex items-center gap-4">
@@ -57,12 +57,7 @@ const Comments = () => {
                 </svg>
               </div>
             </div>
-            <p className="mt-4 text-md text-gray-600">
-              But I must explain to you how all this mistaken idea of denouncing
-              pleasure and praising pain was born and I will give you a complete
-              account of the system, and expound the actual teachings of the
-              great explorer of the truth, the master-builder of human happines.
-            </p>
+            <p className="mt-4 text-md text-gray-600">{comments}</p>
           </div>
         </div>
       </div>
