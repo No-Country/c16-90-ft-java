@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useForm from "../hooks/useForm";
+import useForm from "../hooks/useFormHook";
 
 const LoginPage = () => {
 
@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const onLogin = (e) => {
     e.preventDefault();
-    navigate('/dashboard',{
+    navigate('/userpage',{
       replace: true,
       state:{
         logged: true, 
@@ -24,16 +24,16 @@ const LoginPage = () => {
     onResetForm();
   }
   return (
-    <div className="w-auto flex justify-between items-center bg-gray-50 px-10  rounded-3xl border-2 border-gray-200 ">
+    <div className=" flex justify-between items-center bg-gray-50 px-70  ">
       <div className="  justify-center">
-        <h1 className="text-4xl font-semibold">¡Bienvenido!</h1>
+        <h1 className="text-4xl font-semibold">¡Welcome back!</h1>
         <p className="font-medium text-m text-gray-500 mt-4">
-          Por favor ingresa tus datos.
+          Please enter your credentials.
         </p>
       </div>
       <form onSubmit={onLogin} className="">
         <div>
-          <label htmlFor="name" className="text-lg font-medium">Nombre de usuario</label>
+          <label htmlFor="name" className="text-lg font-medium">User name</label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent "
             placeholder="Enter your user name"
@@ -47,7 +47,7 @@ const LoginPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="password" className="text-lg font-medium">Contraseña</label>
+          <label htmlFor="password" className="text-lg font-medium">Password</label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent"
             placeholder="Enter your password"
@@ -64,22 +64,22 @@ const LoginPage = () => {
           <div>
             <input type="checkbox" id="remember" />
             <label className="ml-2 font-medium text-base" htmlFor="rember">
-              Recordarme.
+              Remember me.
             </label>
           </div>
           <button className="font-medium text-base text-blue-500">
-            ¿Olvidaste tu contraseña?
+            ¿Forget password?
           </button>
         </div>
         <div className="mt-8 ">
           <button className="w-full rounded-xl py-4 bg-buttoncolor text-yellow-400 text-lg font-bold">
-            Entrar
+            Log in
           </button>
         </div>
         <div className="mt-8 ">
-          <p>¿Todavía no tienes una cuenta?</p>
+          <p>¿Don't have an account?</p>
           <Link to="/signup">
-            <button >Registrarse</button>
+            <button >Sign up</button>
           </Link>
         </div>
       </form>

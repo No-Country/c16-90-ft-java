@@ -24,16 +24,15 @@ const SearchBar = () => {
         <div className="flex items-center justify-between bg-gray-400 p-4 rounded">
           <div className="flex items-center text-2xl font-bold">
             <Link to="/">
-              <img src={Logo} alt="logo" className="h-30  rounded-xl" />
+              <img src={Logo} alt="logo" className="h-30  rounded-full" />
             </Link>
           </div>
           <div className="flex items-center gap-5 ">
-            <span className="userName">{state?.name}</span>
             <button
               className='"bg-buttoncolor  text-yellow-400 font-bold text-xl py-2 px-4 rounded-xl hover:scale-110"'
               onClick={onLogOut}
             >
-              Cerrar sesión
+              Log out
             </button>
           </div>
         </div>
@@ -49,7 +48,6 @@ const SearchBar = () => {
                 alt="logo"
                 className="w-30 h-30 text-white p-2  rounded-full"
               />
-              {/* <span className="ml-3 text-xl">App books</span> */}
             </Link>
 
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0 flex-1">
@@ -57,7 +55,7 @@ const SearchBar = () => {
                 to="/signup"
                 className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90"
               >
-                Register
+                Sign up
               </NavLink>
               <NavLink
                 to="/login"

@@ -1,18 +1,18 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useForm from "../hooks/useForm";
+import useForm from "../hooks/useFormHook";
 
 const SignupPage = () => {
   const navigate = useNavigate();
 
   const { name, password, onInputChange, onResetForm } = useForm({
-    name: "",
-    password: "",
+    name: '',
+    password: '',
   });
 
   const onSignup = (e) => {
     e.preventDefault();
-    navigate("/dashboard", {
+    navigate("/", {
       replace: true,
       state: {
         logged: true,
@@ -22,16 +22,16 @@ const SignupPage = () => {
     onResetForm();
   };
   return (
-    <div className="w-auto flex justify-between items-center bg-gray-50 px-10  rounded-3xl border-2 border-gray-200 ">
+    <div className="flex justify-between items-center bg-gray-50 px-70">
       <div className="  justify-center">
-        <h1 className="text-4xl font-semibold">¡Hola!</h1>
+        <h1 className="text-4xl font-semibold">¡Hello!</h1>
         <p className="font-medium text-m text-gray-500 mt-4">
-          ¿No tienes una cuenta? Por favor ingresa tus datos.
+          ¿Don't have an account? Pleas enter your details.
         </p>
       </div>
-      <form onChange={onSignup} className="">
+      <form onSubmit={onSignup} className="">
         <div>
-          <label className="text-lg font-medium">Nombre de usuario</label>
+          <label htmlFor="name" className="text-lg font-medium">User name</label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent "
             placeholder="Enter your user name"
@@ -45,7 +45,7 @@ const SignupPage = () => {
           />
         </div>
         <div>
-          <label className="text-lg font-medium">Contraseña</label>
+          <label  htmlFor="password" className="text-lg font-medium">Password</label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent"
             placeholder="Enter your password"
@@ -62,7 +62,7 @@ const SignupPage = () => {
           <div>
             <input type="checkbox" id="remember" />
             <label className="ml-2 font-medium text-base" htmlFor="rember">
-              Recordarme.
+              Remember me.
             </label>
           </div>
           {/* <button className="font-medium text-base text-blue-500">
@@ -71,13 +71,13 @@ const SignupPage = () => {
         </div>
         <div className="mt-8 ">
           <button className="w-full rounded-xl py-4 bg-buttoncolor text-yellow-400 text-lg font-bold">
-            Registrarse
+            Sign up
           </button>
         </div>
         <div className="mt-8 ">
-          <p>¿Ya tienes una cuenta?</p>
+          <p>¿have an account?</p>
           <Link to="/login">
-            <button>Entrar</button>
+            <button>Log In</button>
           </Link>
         </div>
       </form>
