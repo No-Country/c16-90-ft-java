@@ -57,7 +57,9 @@ const Comments = ({ comments }) => {
                 </svg>
               </div>
             </div>
-            <p className="mt-4 text-md text-gray-600">{comments}</p>
+            <p className="mt-4 text-md text-gray-600">
+              "ASDJASJKDHASDHBASHJDASJDHASJDHASJDAS"
+            </p>
           </div>
         </div>
       </div>

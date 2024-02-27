@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import SectionBooks from "./SectionBooks";
 import Hero from "./Hero";
 import Categories from "./Categories";
@@ -16,18 +16,20 @@ const Home = () => {
 
   const lowerCaseValue = currentValue.toLowerCase();
 
-  const handleSearch = () => {
-    const filteredBooks = books.filter(
-      (elem) =>
-        (lowerCaseValue &&
-          (elem.title.toLowerCase().includes(lowerCaseValue) ||
-            elem.authors.toLowerCase().includes(lowerCaseValue))) ||
-        !lowerCaseValue // Incluye todos los libros si no hay un valor de búsqueda
-    );
-
-    setFilterValue(filteredBooks);
-    setMessage(filteredBooks.length === 0 ? "No se encontraron libros" : "");
-  };
+  //solo se recalculará si books o lowerCaseValue cambian, esto evita que la función se vuelva a crear en cada renderizado,
+  const handleSearch = useMemo(() => {
+    return () => {
+      const filteredBooks = books.filter(
+        (elem) =>
+          (lowerCaseValue &&
+            (elem.title.toLowerCase().includes(lowerCaseValue) ||
+              elem.authors.toLowerCase().includes(lowerCaseValue))) ||
+          !lowerCaseValue
+      );
+      setFilterValue(filteredBooks);
+      setMessage(filteredBooks.length === 0 ? "No se encontraron libros" : "");
+    };
+  }, [books, lowerCaseValue]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,9 +43,12 @@ const Home = () => {
     setMessage("");
   };
 
-  useEffect(() => {
-    const lowerCaseCategorySelect = categorySelect.toLowerCase();
+  const lowerCaseCategorySelect = useMemo(
+    () => categorySelect.toLowerCase(),
+    [categorySelect]
+  );
 
+  useEffect(() => {
     const filteredBooks = books.filter((elem) => {
       if (lowerCaseCategorySelect) {
         return elem.genres.toLowerCase().includes(lowerCaseCategorySelect);
@@ -51,16 +56,16 @@ const Home = () => {
       return true;
     });
 
-    // Limpiar el mensaje cuando cambie la categoría
     setMessage("");
-
     setFilterValue(filteredBooks);
-  }, [categorySelect, books]);
+  }, [lowerCaseCategorySelect, books]);
 
-  //llamada de api
+  //llamada de api y evitan realizar la llamada si los datos ya han sido cargados.
   useEffect(() => {
-    fetchBooks();
-  }, []);
+    if (books.length === 0) {
+      fetchBooks();
+    }
+  }, [books, fetchBooks]);
 
   return (
     <main>

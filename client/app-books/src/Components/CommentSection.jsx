@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Comments from "./Comments";
 import FormComent from "./FormComent";
 import { useAuth } from "../context/AuthUserProvider";
@@ -9,31 +9,34 @@ import Information from "./Alerts/Information";
 const CommentSection = ({ bookId }) => {
   const { userPrueba } = useAuth();
   const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const addComment = (newComment) => {
+  const addComment = useCallback((newComment) => {
     setComments((prevComments) => [...prevComments, newComment]);
-  };
+  }, []);
 
-  const loadComments = async () => {
+  const loadComments = useCallback(async () => {
     try {
       const fetchedComments = await commentServices.getComments(bookId);
       setComments(fetchedComments);
     } catch (error) {
-      // Manejar errores de carga de comentarios
-      console.log("Error al cargar los comentarios", error);
+      console.error("Error loading comments:", error);
+      // Puedes mostrar un mensaje de error al usuario o realizar otras acciones necesarias
     }
-  };
+  }, [bookId]);
 
-  const addCommentt = async (newComment) => {
-    try {
-      // Enviar el nuevo comentario al servidor
-      await commentServices.postComment(bookId, newComment);
-      // Recargar comentarios después de agregar uno nuevo
-      loadComments();
-    } catch (error) {
-      // Manejar errores al agregar comentarios
-    }
-  };
+  const addCommentt = useCallback(
+    async (newComment) => {
+      try {
+        await commentServices.postComment(bookId, newComment);
+        loadComments();
+      } catch (error) {
+        console.error("Error adding comment:", error);
+        // Puedes mostrar un mensaje de error al usuario o realizar otras acciones necesarias
+      }
+    },
+    [bookId, loadComments]
+  );
 
   useEffect(() => {
     // Cargar comentarios del servidor cuando el componente se monta
@@ -48,14 +51,15 @@ const CommentSection = ({ bookId }) => {
           text="You need to have a valid account to see the messages"
         />
       )}
-      {comments.length === 0 && <Information />}
+      {loading && <p className="text-white">Loading comments...</p>}
+      {comments.length === 0 && !loading && <Information />}
       <CommentsList comments={comments} />
       <FormComent onSubmit={addComment} />
     </div>
   );
 };
 
-const CommentsList = ({ comments }) => {
+const CommentsList = React.memo(({ comments }) => {
   return (
     <>
       {comments.map((comment, index) => (
@@ -63,6 +67,6 @@ const CommentsList = ({ comments }) => {
       ))}
     </>
   );
-};
+});
 
 export default CommentSection;

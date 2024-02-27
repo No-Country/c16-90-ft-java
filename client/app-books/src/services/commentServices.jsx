@@ -8,16 +8,14 @@ const commentServices = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // Puedes incluir otros encabezados según sea necesario, como el token de autenticación si lo tienes
         },
         body: JSON.stringify({ comment }),
       });
 
       if (!response.ok) {
-        throw new Error("Error posting comment");
+        throw new Error(`Error posting comment! Status: ${response.status}`);
       }
 
-      // Devuelve la respuesta en caso de que necesites manejarla en el componente
       return response.json();
     } catch (error) {
       console.error("Error posting comment:", error);
@@ -31,10 +29,9 @@ const commentServices = () => {
       const response = await fetch(`api/books/${bookId}/comments`);
 
       if (!response.ok) {
-        throw new Error("Error getting comments");
+        throw new Error(`Error getting comments! Status: ${response.status}`);
       }
 
-      // Devuelve los comentarios en caso de que necesites manejarlos en el componente
       return response.json();
     } catch (error) {
       console.error("Error getting comments:", error);

@@ -1,4 +1,5 @@
 import React from "react";
+import { ERROR_SIGNIN, ERROR_SIGNUP } from "../constants/message";
 
 const auth = () => {
   // Registro de administrador:
@@ -7,8 +8,7 @@ const auth = () => {
       const response = await http.post("api/admin/signup", admin);
       return response;
     } catch (error) {
-      // console.log("Admin signup error:", error);
-      throw error;
+      throw new Error(ERROR_SIGNUP);
     }
   };
 
@@ -20,8 +20,7 @@ const auth = () => {
 
       return response;
     } catch (error) {
-      // console.log("Admin signin error:", error);
-      throw error;
+      throw new Error(ERROR_SIGNIN);
     }
   };
 

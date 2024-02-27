@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import auth from "../../../services/auth";
 import { Link } from "react-router-dom";
+import { SUCCESS_LOGIN, ERROR_LOGIN } from "../../../constants/message";
 
 const Login = () => {
   const [success, setSuccess] = useState("");
@@ -35,15 +36,13 @@ const Login = () => {
     try {
       const response = await adminSignin(admin);
       if (response.status === 200) {
-        setSuccess("Ingreso exitoso!");
+        setSuccess(SUCCESS_LOGIN);
         setTimeout(() => {
           setSuccess(""); // Borra el mensaje de éxito después de 2 segundos
         }, 3000); // 2000 milisegundos (2 segundos)
       }
     } catch (error) {
-      setError(
-        "Ocurrió un error durante el ingreso. Por favor, inténtalo de nuevo."
-      );
+      setError(ERROR_LOGIN);
       setTimeout(() => {
         setError(""); // Borra el mensaje de éxito después de 2 segundos
       }, 3000); // 2000 milisegundos (2 segundos)
