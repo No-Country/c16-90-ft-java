@@ -49,7 +49,7 @@ const fieldsSignup =[
     name: 'password', 
     type:'password', 
     placeholder: 'Password', 
-    
+    icon:<AiOutlineLock/>, 
     validation: {
       required: 'Password required',
       minLength: {
@@ -65,12 +65,24 @@ const fieldsSignup =[
     name: 'passwordConfirmation', 
     type: 'pasword',
     placeholder: 'Confirm password', 
-    
+    icon:<AiOutlineLock/>, 
     validation: {
     required: 'This is required',
     validate: (value, { password }) => value === password || 'The passwords do not match',
   },},
+  {
+    name: 'gender',
+    type: 'select',
+    placeholder: 'Select your gender',
+    validation: { required: 'Please select your gender' },
+    options: [
+      { value: 'male', label: 'Male' },
+      { value: 'female', label: 'Female' },
+      { value: 'non-binary', label: 'Non Binary' },
+    ],
+  },
 ];
+
 
 const fieldsLogin = [
   {
@@ -89,7 +101,7 @@ const fieldsLogin = [
     name: 'password', 
     type:'password', 
     placeholder: 'Password', 
-    
+    icon:<AiOutlineLock/>, 
     validation: {
       required: 'Password required',
       minLength: {
