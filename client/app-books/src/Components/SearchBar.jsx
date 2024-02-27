@@ -23,7 +23,7 @@ const SearchBar = () => {
       {state?.logged ? (
         <div className="flex items-center justify-between bg-gray-400 p-4 rounded">
           <div className="flex items-center text-2xl font-bold">
-            <Link to="/">
+            <Link to="/userpage">
               <img src={Logo} alt="logo" className="h-30  rounded-full" />
             </Link>
           </div>
