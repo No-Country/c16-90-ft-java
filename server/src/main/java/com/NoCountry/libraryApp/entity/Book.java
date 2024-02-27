@@ -1,8 +1,10 @@
 package com.NoCountry.libraryApp.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,11 +38,18 @@ public class Book {
     @Column(length = 65535, columnDefinition = "TEXT")
     private String description;
 
+    @Pattern(regexp = "^(https?|ftp)://\\S+$", message = "La URL de la imagen no es válida")
     private String imageUrl;
 
+    @Min(value = 1, message = "El numero de paginas debe ser mayor que 0")
     private Integer numPages;
 
-    private Float rating;
+    @NotNull
+    @Column(name = "rating")
+    private String rating;
+
+    @Column(name = "book_genre")
+    private String genre;
 
 }
 
