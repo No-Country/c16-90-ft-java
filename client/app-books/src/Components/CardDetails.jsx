@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import CommentSection from "./CommentSection";
 import Comments from "./Comments";
+import SkeletonCardDetail from "./SkeletonCardDetail";
 
 const CardDetails = () => {
   const [dataBook, setDataBook] = useState([]);
@@ -39,7 +40,7 @@ const CardDetails = () => {
 
   if (loading) {
     // Puedes mostrar un indicador de carga aquí
-    return <p>Cargando...</p>;
+    return <SkeletonCardDetail />;
   }
 
   if (error) {
@@ -48,7 +49,10 @@ const CardDetails = () => {
   }
 
   return (
-    <section className="text-gray-600 body-font overflow-hidden">
+    <section
+      className="text-gray-600 body-font  h-screen
+    "
+    >
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">

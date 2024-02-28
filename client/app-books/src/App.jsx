@@ -10,7 +10,7 @@ function App() {
     <main>
       <SearchBarRoute />
       <DashboardAdminRoute />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
