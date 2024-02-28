@@ -1,38 +1,38 @@
-import React, {useState} from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
-import { AiOutlineLock, AiOutlineUnlock } from 'react-icons/ai';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 
-
-const FormPage = ({formTitle, fields, buttonTxt}) => {
-
-
+const FormPage = ({ formTitle, fields, buttonTxt }) => {
   const navigate = useNavigate();
-  const { register, formState: { errors }, handleSubmit } = useForm();
-  const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const onSubmit =  (data) => {
-    // Realiza cualquier acción necesaria con los datos
-    console.log(data);
-    navigate('/userpage', {
+
+  const onSubmit = (data) => {
+    navigate("/userpage", {
       state: {
         logged: true,
       },
     });
   };
 
-
   return (
-    <div className="flex flex-col items-center mt-10">
+    <div className="flex flex-col items-center mt-[10rem] min-h-[30rem] my-30">
       <h2 className="text-2xl font-bold mb-5">{formTitle}</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
         {fields.map((field) => (
           <div key={field.name} className="mb-6 relative">
-            {field.type === 'select' ? (
-              <>               
+            {field.type === "select" ? (
+              <>
                 <select
                   className="appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id={field.name}
@@ -46,26 +46,46 @@ const FormPage = ({formTitle, fields, buttonTxt}) => {
                     </option>
                   ))}
                 </select>
-                <p className="text-red-500 text-l mt-1">{errors[field.name]?.message}</p>
+                <p className="text-red-500 text-l mt-1">
+                  {errors[field.name]?.message}
+                </p>
               </>
             ) : (
-              <>                
+              <>
                 <div key={field.name} className="mb-6 relative">
                   <div
-                    onClick={() => field.type === 'password' && togglePasswordVisibility()}
+                    onClick={() =>
+                      field.type === "password" && togglePasswordVisibility()
+                    }
                     className={`absolute top-1/2 -translate-y-1/2 right-3 flex items-center pl-3 pointer-events-none text-3xl`}
                   >
-                    {field.type === 'password' ? (showPassword ? <AiOutlineUnlock /> : <AiOutlineLock />) : field.icon}
+                    {field.type === "password" ? (
+                      showPassword ? (
+                        <AiOutlineUnlock />
+                      ) : (
+                        <AiOutlineLock />
+                      )
+                    ) : (
+                      field.icon
+                    )}
                   </div>
                   <input
                     placeholder={field.placeholder}
                     className="appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type={field.type === 'password' ? (showPassword ? 'text' : 'password') : field.type || 'text'}
+                    type={
+                      field.type === "password"
+                        ? showPassword
+                          ? "text"
+                          : "password"
+                        : field.type || "text"
+                    }
                     name={field.name}
                     id={field.name}
                     {...register(field.name, field.validation)}
                   />
-                  <p className="text-red-500 text-l mt-1">{errors[field.name]?.message}</p>
+                  <p className="text-red-500 text-l mt-1">
+                    {errors[field.name]?.message}
+                  </p>
                 </div>
               </>
             )}
@@ -82,5 +102,4 @@ const FormPage = ({formTitle, fields, buttonTxt}) => {
   );
 };
 
-
-export default FormPage
+export default FormPage;

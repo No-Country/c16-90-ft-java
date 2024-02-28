@@ -1,31 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import CommentSection from "./CommentSection";
 import Comments from "./Comments";
+import SkeletonCardDetail from "./SkeletonCardDetail";
 
 const CardDetails = () => {
   const [dataBook, setDataBook] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const { id } = useParams();
 
-  async function callBookId(id) {
+  const callBookId = useCallback(async (bookId) => {
     try {
+      setLoading(true);
       const response = await fetch(
-        `https://example-data.draftbit.com/books/${id}`
+        `https://example-data.draftbit.com/books/${bookId}`
       );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       const data = await response.json();
-      if (data) setDataBook(data);
+      if (data) {
+        setDataBook(data);
+      }
     } catch (error) {
-      console.log("Error", error);
+      console.error("Error", error);
+      setError(
+        "Error al cargar los detalles del libro. Por favor, inténtalo de nuevo."
+      );
+    } finally {
+      setLoading(false);
     }
-  }
+  }, []);
 
   useEffect(() => {
     callBookId(id);
-  }, [id]);
+  }, [id, callBookId]);
+
+  if (loading) {
+    // Puedes mostrar un indicador de carga aquí
+    return <SkeletonCardDetail />;
+  }
+
+  if (error) {
+    // Puedes mostrar un mensaje de error aquí
+    return <p>{error}</p>;
+  }
 
   return (
-    <section className="text-gray-600 body-font overflow-hidden">
+    <section
+      className="text-gray-600 body-font  h-screen
+    "
+    >
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
@@ -90,7 +117,7 @@ const CardDetails = () => {
       </div>
       <div className="bg-boxdark-2">
         <div className="container px-30 pb-[6rem] mx-auto bg-boxdark-2 pt-20">
-          <CommentSection />
+          <CommentSection bookId={id} />
         </div>
       </div>
     </section>
