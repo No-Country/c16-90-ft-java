@@ -69,19 +69,20 @@ const SearchBar = () => {
                 to="/faqs"
                 className="px-7 py-3 text-base font-medium text-dark hover:text-[#292929] dark:text-white hover:border-b-2 hover:bg-gray-100"
               >
-                FAQS
+                Faq's
+              </NavLink>
+
+              <NavLink
+                to="/login"
+                className="px-7 py-3 text-base font-medium text-dark hover:text-[#292929] dark:text-white hover:border-b-2 hover:bg-gray-100"
+              >
+                Log in
               </NavLink>
               <NavLink
                 to="/signup"
                 className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90"
               >
                 Sign up
-              </NavLink>
-              <NavLink
-                to="/login"
-                className="px-7 py-3 text-base font-medium text-dark hover:text-[#292929] dark:text-white hover:border-b-2 hover:bg-gray-100"
-              >
-                Log in
               </NavLink>
             </div>
           )}

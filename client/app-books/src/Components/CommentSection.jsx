@@ -43,6 +43,8 @@ const CommentSection = ({ bookId }) => {
     loadComments();
   }, [bookId]); // Asegúrate de volver a cargar los comentarios si cambia el libro
 
+  //con la funcion addCommentt le paso el Id de user el bookId y la reseña
+
   return (
     <div className="flex flex-col gap-4">
       {!userPrueba && (
