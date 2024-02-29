@@ -13,7 +13,16 @@ CREATE TABLE Users (
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
+
 -- Roles en el User. 
+CREATE TABLE Admin (
+    admin_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    secret VARCHAR(50) NOT NULL
+);
 
 -- Creating Books table
 CREATE TABLE Books (
@@ -29,7 +38,7 @@ CREATE TABLE Books (
 
 -- Creating Reviews table
 CREATE TABLE Reviews (
-    review_id INT AUTO_INCREMENT PRIMARY KEY,
+    review_id INT PRIMARY KEY,
     user_id INT,
     book_id INT,
     comment TEXT NOT NULL,
@@ -37,6 +46,15 @@ CREATE TABLE Reviews (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
+
+INSERT INTO Users (name, email, password, genre, profile_photo, DateRegister, hourRegister)
+VALUES ('Anderson', 'usuario1@example.com', '12345', 'Hombre', 'foto1.jpg', '2024-02-28', '12:00:00'),
+       ('Lucas', 'usuario2@example.com', '12334', 'Mujer', 'foto2.jpg', '2024-02-28', '12:30:00'),
+       ('Ari', 'usuario3@example.com', '33333', 'Hombre', 'foto3.jpg', '2024-02-28', '13:00:00')
+       ('Andres', 'usuario1@example.com', '12345', 'Hombre', 'foto1.jpg', '2024-02-28', '12:00:00'),
+       ('Luisa', 'usuario2@example.com', '12334', 'Mujer', 'foto2.jpg', '2024-02-28', '12:30:00'),
+       ('Alfredo', 'usuario3@example.com', '33333', 'Hombre', 'foto3.jpg', '2024-02-28', '13:00:00');
+
 
 INSERT INTO Books (title, author, description, image_url, book_genre, num_pages, rating) VALUES 
 	   ('The Hunger Games', 'Suzanne Collins', 'Winning will make you famous. Losing means certain death. The nation of Panem, formed from a post-apocalyptic North America, is a country that consists of a wealthy Capitol region surrounded by 12 poorer districts. Early in its history, a rebellion led by a 13th district against the Capitol resulted in its destruction and the creation of an annual televised event known as the Hunger Games. In punishment, and as a reminder of the power and grace of the Capitol, each district must yield one boy and one girl between the ages of 12 and 18 through a lottery system to participate in the games. The tributes are chosen during the annual Reaping and are forced to fight to the death, leaving only one survivor to claim victory. When 16-year-old Katnisss young sister, Prim, is selected as District 12s female representative, Katniss volunteers to take her place. She and her male counterpart Peeta, are pitted against bigger, stronger representatives, some of whom have trained for this their whole lives. , she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.', 'https://images.gr-assets.com/books/1447303603l/2767052.jpg', 'Young Adult,Fiction,Science Fiction,Dystopia,Fantasy', 374, 4.33),

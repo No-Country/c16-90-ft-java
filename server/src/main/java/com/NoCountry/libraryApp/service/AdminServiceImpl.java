@@ -1,6 +1,8 @@
 package com.NoCountry.libraryApp.service;
 
 
+import com.NoCountry.libraryApp.entity.Admin;
+import com.NoCountry.libraryApp.entity.Book;
 import com.NoCountry.libraryApp.repository.AdminRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +16,10 @@ public class AdminServiceImpl implements  AdminService{
 
     public AdminServiceImpl(AdminRepository adminRepository){
         this.adminRepository = adminRepository;
+    }
+
+    public Admin saveAdmin(Admin admin) {
+        return null;
     }
 
 }

@@ -16,13 +16,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "admin")
 
 public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "admin_id")
     private long id;
 
     @NotNull
@@ -39,7 +39,7 @@ public class Admin {
 
     @NotNull
     @NotBlank
-    private String confirPassword;
+    private String confirmPassword;
 
     @NotNull
     @NotBlank

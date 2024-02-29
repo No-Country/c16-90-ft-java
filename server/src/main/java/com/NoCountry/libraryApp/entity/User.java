@@ -39,6 +39,14 @@ public class User {
 
     @NotNull
     @NotBlank
+    private String genre;
+
+    @NotNull
+    @NotBlank
+    private String profile_photo;
+
+    @NotNull
+    @NotBlank
     private String DateRegister;
 
     @NotNull
@@ -46,7 +54,3 @@ public class User {
     private String hourRegister;
 
 }
-
-
-
-
