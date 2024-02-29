@@ -3,26 +3,24 @@ import { Link, useNavigate } from "react-router-dom";
 import useForm from "../hooks/useFormHook";
 
 const LoginPage = () => {
-
   const navigate = useNavigate();
 
-  const {name, password, onInputChange, onResetForm} = useForm({
-    name: '',
-    password:'',
-
+  const { name, password, onInputChange, onResetForm } = useForm({
+    name: "",
+    password: "",
   });
 
   const onLogin = (e) => {
     e.preventDefault();
-    navigate('/userpage',{
+    navigate("/", {
       replace: true,
-      state:{
-        logged: true, 
+      state: {
+        logged: true,
         name,
       },
     });
     onResetForm();
-  }
+  };
   return (
     <div className=" flex justify-between items-center bg-gray-50 px-70  ">
       <div className="  justify-center">
@@ -33,7 +31,9 @@ const LoginPage = () => {
       </div>
       <form onSubmit={onLogin} className="">
         <div>
-          <label htmlFor="name" className="text-lg font-medium">User name</label>
+          <label htmlFor="name" className="text-lg font-medium">
+            User name
+          </label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent "
             placeholder="Enter your user name"
@@ -47,7 +47,9 @@ const LoginPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="password" className="text-lg font-medium">Password</label>
+          <label htmlFor="password" className="text-lg font-medium">
+            Password
+          </label>
           <input
             className="w-full border-2 border-gray-300 rounded-xl p-3 mt-1 bg-transparent"
             placeholder="Enter your password"
@@ -79,7 +81,7 @@ const LoginPage = () => {
         <div className="mt-8 ">
           <p>¿Don't have an account?</p>
           <Link to="/signup">
-            <button >Sign up</button>
+            <button>Sign up</button>
           </Link>
         </div>
       </form>

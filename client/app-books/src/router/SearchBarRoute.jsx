@@ -17,7 +17,7 @@ const CardDetails = lazy(() => import("../Components/CardDetails"));
 const FormPage = lazy(() => import("../pages/FormPage"));
 
 // userpageimports
-const UserPage = lazy(() => import("../pages/UserPage"));
+// const UserPage = lazy(() => import("../pages/UserPage"));
 const FeedReusable = lazy(() => import("../pages/FeedReusable"));
 const UserSettings = lazy(() => import("../Components/User/UserSettings"));
 
@@ -166,7 +166,7 @@ const SearchBarRoute = () => {
           <Route path="/detail/:id" element={<CardDetails />} />
 
           {/* User page routes */}
-          <Route path="/userpage" element={<UserPage />}>
+          <Route>
             <Route index element={<UserSettings />} path="userconfig" />
             <Route
               index

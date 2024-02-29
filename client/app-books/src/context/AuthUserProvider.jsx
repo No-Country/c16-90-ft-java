@@ -5,7 +5,14 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [userPrueba, setUserPrueba] = useState(false);
+  const [userPrueba, setUserPrueba] = useState(true);
+
+  const userDataPrueba = {
+    id: 7,
+    userName: "Lucas",
+    email: "Lucas@gmail.com",
+    geneder: "Male",
+  };
 
   useEffect(() => {
     // Verificar la autenticación del usuario al cargar la aplicación
@@ -102,6 +109,7 @@ export const AuthProvider = ({ children }) => {
         isUserAuthenticated,
         loading,
         userPrueba,
+        userDataPrueba,
       }}
     >
       {children}

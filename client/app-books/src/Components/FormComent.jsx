@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useAuth } from "../context/AuthUserProvider";
+import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const FormComent = ({ onSubmit }) => {
-  const { userPrueba } = useAuth();
+  const [dataBook, setDataBook] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const { userPrueba, userDataPrueba } = useAuth();
   const { register, handleSubmit, reset } = useForm();
 
+  const { id } = useParams();
+
   const handleCommentSubmit = (data) => {
-    onSubmit(data.comment);
+    const dataComment = {
+      userId: userDataPrueba.id,
+      comment: data.comment,
+    };
+
+    onSubmit(dataComment);
     reset(); // Limpiar el formulario después de enviar el comentario
   };
+
+  const callBookId = useCallback(async (bookId) => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://example-data.draftbit.com/books/${bookId}`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      if (data) {
+        setDataBook(data);
+      }
+    } catch (error) {
+      console.error("Error", error);
+      setError(
+        "Error al cargar los detalles del libro. Por favor, inténtalo de nuevo."
+      );
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    callBookId(id);
+  }, [id, callBookId]);
 
   return (
     <form
