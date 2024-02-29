@@ -12,23 +12,6 @@ import AdminButtonsSession from "../Components/Admin/AdminButtonsSession";
 import Login from "../Components/Admin/Auth/Login";
 import Register from "../Components/Admin/Auth/Register";
 
-const fieldsRegister = [
-  { name: "username", label: "Username" },
-  { name: "email", label: "Email Address", type: "email" },
-  { name: "password", label: "Password", type: "password" },
-  {
-    name: "passwordConfirmation",
-    label: "Password Confirmation",
-    type: "password",
-  },
-  { name: "secretKey", label: "Enter secret key", type: "password" },
-];
-
-const fieldsLogin = [
-  { name: "email", label: "Your email", type: "email" },
-  { name: "password", label: "Your password", type: "password" },
-];
-
 const pageRoutes = [
   {
     path: "/dashboard*",

@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import dataJSON from "../../public/data.json";
 
-const createToast = (title: string, msg: string, type: number) => {
+const createToast = (title, msg, type) => {
   toast.custom((t) => (
     <div
       className={`${t.visible ? "animate-enter" : "animate-leave"}
@@ -77,7 +77,7 @@ const fireToast = () => {
           ? "delta_" + alertSetting.para
           : alertSetting.para;
       if (alertSetting.id == "ALL") {
-        Object.keys(dataJSON).map((id: string) => {
+        Object.keys(dataJSON).map((id) => {
           const condition =
             alertSetting.criterion == "0"
               ? value <= -1 * dataJSON[id][para]

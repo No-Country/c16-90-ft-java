@@ -18,7 +18,7 @@ const FormPage = ({ formTitle, fields, buttonTxt }) => {
   };
 
   const onSubmit = (data) => {
-    navigate("/userpage", {
+    navigate("/", {
       state: {
         logged: true,
       },
