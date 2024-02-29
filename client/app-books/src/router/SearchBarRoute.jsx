@@ -142,6 +142,8 @@ const SearchBarRoute = () => {
     >
       <Routes>
         <Route path="/" element={<SearchBar />}>
+          <Route path="/faqs" element={<FAQ />} />
+
           <Route index element={<Home />} />
           <Route
             path="/login"
@@ -186,7 +188,6 @@ const SearchBarRoute = () => {
           </Route>
         </Route>
         <Route path="/dashboard" element={<DashboardAdminRoute />} />
-        <Route path="/faqs" element={<FAQ/>} />
       </Routes>
     </Suspense>
   );
