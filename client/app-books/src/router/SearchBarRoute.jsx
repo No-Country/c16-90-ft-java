@@ -6,6 +6,7 @@ import {
   AiOutlineUser,
   AiOutlineUnlock,
 } from "react-icons/ai";
+import FAQ from "../pages/FAQ";
 
 const SearchBar = lazy(() => import("../Components/SearchBar"));
 const LoginPage = lazy(() => import("../pages/LoginPage"));
@@ -185,6 +186,7 @@ const SearchBarRoute = () => {
           </Route>
         </Route>
         <Route path="/dashboard" element={<DashboardAdminRoute />} />
+        <Route path="/faqs" element={<FAQ/>} />
       </Routes>
     </Suspense>
   );
