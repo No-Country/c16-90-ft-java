@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 
 /**
  * Clase que representa un libro.
@@ -36,7 +38,7 @@ public class Book {
     private String author;
 
     @Column(length = 65535, columnDefinition = "TEXT")
-    private String description;
+    private String descriptions;
 
     @Pattern(regexp = "^(https?|ftp)://\\S+$", message = "La URL de la imagen no es válida")
     private String imageUrl;
@@ -50,6 +52,9 @@ public class Book {
 
     @Column(name = "book_genre")
     private String genre;
+
+    @OneToMany(mappedBy = "book")
+    private List<Comment> comments;
 
 }
 
