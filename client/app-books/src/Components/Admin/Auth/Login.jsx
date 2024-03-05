@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import auth from "../../../services/auth";
 import { Link } from "react-router-dom";
 import { SUCCESS_LOGIN, ERROR_LOGIN } from "../../../constants/message";
+import { useAuthAdmin } from "../../../context/AdminSessionLocalProvider";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [success, setSuccess] = useState("");
@@ -10,7 +12,13 @@ const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [active, setActive] = useState(false);
 
+  const navigate = useNavigate();
+
+  //petición HTTP
   const { adminSignin } = auth();
+
+  //peticion LOCAL
+  const { login } = useAuthAdmin();
 
   const {
     register,
@@ -33,20 +41,29 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-    try {
-      const response = await adminSignin(admin);
-      if (response.status === 200) {
-        setSuccess(SUCCESS_LOGIN);
-        setTimeout(() => {
-          setSuccess(""); // Borra el mensaje de éxito después de 2 segundos
-        }, 3000); // 2000 milisegundos (2 segundos)
-      }
-    } catch (error) {
-      setError(ERROR_LOGIN);
-      setTimeout(() => {
-        setError(""); // Borra el mensaje de éxito después de 2 segundos
-      }, 3000); // 2000 milisegundos (2 segundos)
+
+    const response = login(admin);
+    if (response) {
+      navigate("/dashboard");
+    } else {
+      return setError("Credenciales no validas");
     }
+
+    return;
+    // try {
+    //   const response = await adminSignin(admin);
+    //   if (response.status === 200) {
+    //     setSuccess(SUCCESS_LOGIN);
+    //     setTimeout(() => {
+    //       setSuccess(""); // Borra el mensaje de éxito después de 2 segundos
+    //     }, 3000); // 2000 milisegundos (2 segundos)
+    //   }
+    // } catch (error) {
+    //   setError(ERROR_LOGIN);
+    //   setTimeout(() => {
+    //     setError(""); // Borra el mensaje de éxito después de 2 segundos
+    //   }, 3000); // 2000 milisegundos (2 segundos)
+    // }
 
     reset();
   };
