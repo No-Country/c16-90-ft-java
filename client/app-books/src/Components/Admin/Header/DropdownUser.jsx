@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useAuthAdmin } from "../../../context/AdminSessionLocalProvider";
 import UserOne from "../../../images/user/user-01.png";
 
 const DropdownUser = () => {
@@ -8,6 +8,8 @@ const DropdownUser = () => {
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
+
+  const { admin, logout } = useAuthAdmin();
 
   // close on click outside
   useEffect(() => {
@@ -45,13 +47,16 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {admin?.firstName}
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs">Admin</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="User" />
+          <img
+            src="https://res.cloudinary.com/dncmrwppr/image/upload/v1709641697/newavatar-removebg-preview_hhsnvm.png"
+            alt="Admin"
+          />
         </span>
 
         <svg
@@ -108,8 +113,8 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul> */}
-        <Link
-          to="/"
+        <button
+          onClick={() => logout()}
           className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
         >
           <svg
@@ -130,7 +135,7 @@ const DropdownUser = () => {
             />
           </svg>
           Log Out
-        </Link>
+        </button>
       </div>
       {/* <!-- Dropdown End --> */}
     </div>

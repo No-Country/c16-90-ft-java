@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import auth from "../../../services/auth";
 import { Link } from "react-router-dom";
+import { useAuthAdmin } from "../../../context/AdminSessionLocalProvider";
 
 const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
+  //peticion HTTP
   const { adminSignup } = auth();
+
+  //contexto LOCAL
+  const { registerLocal } = useAuthAdmin();
 
   const {
     register,
@@ -34,22 +39,28 @@ const Register = () => {
       secret: data.secret,
     };
 
-    try {
-      const response = await adminSignup(admin);
-      if (response.status === 200) {
-        setSuccess("Registro exitoso!");
-        setTimeout(() => {
-          setSuccess(""); // Borra el mensaje de éxito después de 2 segundos
-        }, 3000); // 2000 milisegundos (2 segundos)
-      }
-    } catch (error) {
-      setError(
-        "Ocurrió un error durante el registro. Por favor, inténtalo de nuevo."
-      );
-      setTimeout(() => {
-        setError(""); // Borra el mensaje de éxito después de 2 segundos
-      }, 3000); // 2000 milisegundos (2 segundos)
+    if (admin.secret === "holamundo") {
+      registerLocal(admin);
+    } else {
+      setError("Credenciales no validas para el registro");
     }
+
+    // try {
+    //   const response = await adminSignup(admin);
+    //   if (response.status === 200) {
+    //     setSuccess("Registro exitoso!");
+    //     setTimeout(() => {
+    //       setSuccess(""); // Borra el mensaje de éxito después de 2 segundos
+    //     }, 3000); // 2000 milisegundos (2 segundos)
+    //   }
+    // } catch (error) {
+    //   setError(
+    //     "Ocurrió un error durante el registro. Por favor, inténtalo de nuevo."
+    //   );
+    //   setTimeout(() => {
+    //     setError(""); // Borra el mensaje de éxito después de 2 segundos
+    //   }, 3000); // 2000 milisegundos (2 segundos)
+    // }
     reset();
   };
   return (

@@ -8,9 +8,14 @@ import {
 } from "react-router-dom";
 import Logo from "../images/logo/booklogo1.png";
 import { AiFillRead, AiFillStar, AiFillHeart } from "react-icons/ai";
+import { useAuthUser } from "../context/UserSessionLocalProvider";
 
 const SearchBar = () => {
   const navigate = useNavigate();
+
+  const { sessionActive, logout } = useAuthUser();
+
+  console.log(sessionActive);
 
   const { state } = useLocation();
 
@@ -34,7 +39,7 @@ const SearchBar = () => {
               className="w-30 h-30 text-white p-2  rounded-full"
             />
           </Link>
-          {state?.logged ? (
+          {sessionActive ? (
             <div className="flex items-center justify-end flex-1 bg-gray-400 p-4 rounded">
               <ul className=" flex items-center mx-auto">
                 <li className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90 flex items-center gap-2">
@@ -57,7 +62,7 @@ const SearchBar = () => {
                 </li>
               </ul>
               <button
-                onClick={onLogOut}
+                onClick={logout}
                 className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90"
               >
                 Log out
