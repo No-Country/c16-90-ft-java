@@ -1,8 +1,10 @@
+import { useFavoriteContext } from "../hooks/FavReadWish";
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import CommentSection from "./CommentSection";
 import Comments from "./Comments";
 import SkeletonCardDetail from "./SkeletonCardDetail";
+import { AiOutlineStar, AiFillStar, AiFillBook, AiOutlineBook, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const CardDetails = () => {
   const [dataBook, setDataBook] = useState([]);
@@ -33,6 +35,16 @@ const CardDetails = () => {
       setLoading(false);
     }
   }, []);
+
+  const { favorite, addFavorite } = useFavoriteContext();
+  const isFavorite = favorite.favorite.some((fav) => fav.id === id);
+  const iconFavorite = isFavorite ? <AiOutlineStar size={25}/> : <AiFillStar size={25}/>;
+  
+  const isRead = favorite.read.some((read) => read.id === id);
+  const iconRead =  isRead ? <AiOutlineBook size={25}/> : <AiFillBook size={25}/>;
+
+  const isWish = favorite.wish.some((wish) => wish.id === id);
+  const iconWish = isWish ? <AiOutlineHeart size={25}/> :  <AiFillHeart size={25}/>;
 
   useEffect(() => {
     callBookId(id);
@@ -94,20 +106,17 @@ const CardDetails = () => {
               </div>
             )}
             <div className="flex flex-col gap-4 mt-5">
-              <div class="dark:bg-black/10 flex items-center gap-2">
-                <input
-                  class="dark:border-white-400/20 dark:scale-100 transition-all duration-500 ease-in-out dark:hover:scale-110 dark:checked:scale-100 w-5 h-5"
-                  type="checkbox"
-                />
-                <label class="text-boxdark-2">Read</label>
-              </div>
-              <div class="dark:bg-black/10 flex items-center gap-2">
-                <input
-                  class="dark:border-white-400/20 dark:scale-100 transition-all duration-500 ease-in-out dark:hover:scale-110 dark:checked:scale-100 w-5 h-5"
-                  type="checkbox"
-                />
-                <label class="text-boxdark-2">Favorite</label>
-              </div>
+              <button onClick={() => addFavorite("favorite", { id })}>
+                {iconFavorite}
+              </button>
+
+              <button onClick={() => addFavorite("read", { id })}>
+                {iconRead}
+              </button>
+
+              <button onClick={() => addFavorite("wish", { id })}>
+                {iconWish}
+              </button>
             </div>
           </div>
           <img

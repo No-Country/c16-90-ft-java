@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import FAQ from "../pages/FAQ";
 
+
 const SearchBar = lazy(() => import("../Components/SearchBar"));
 const LoginPage = lazy(() => import("../pages/LoginPage"));
 const Home = lazy(() => import("../Components/Home/Home"));
@@ -17,7 +18,6 @@ const CardDetails = lazy(() => import("../Components/CardDetails"));
 const FormPage = lazy(() => import("../pages/FormPage"));
 
 // userpageimports
-// const UserPage = lazy(() => import("../pages/UserPage"));
 const FeedReusable = lazy(() => import("../pages/FeedReusable"));
 const UserSettings = lazy(() => import("../Components/User/UserSettings"));
 
@@ -140,55 +140,55 @@ const SearchBarRoute = () => {
         </div>
       }
     >
-      <Routes>
-        <Route path="/" element={<SearchBar />}>
-          <Route path="/faqs" element={<FAQ />} />
+        <Routes>
+          <Route path="/" element={<SearchBar />}>
+            <Route path="/faqs" element={<FAQ />} />
+            <Route index element={<Home />} />
+            <Route
+              path="/login"
+              element={
+                <FormPage
+                  formTitle="Log in to your account"
+                  fields={fieldsLogin || []}
+                  buttonTxt="Login"
+                />
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <FormPage
+                  formTitle="Create a new account"
+                  fields={fieldsSignup || []}
+                  buttonTxt="Sign up"
+                />
+              }
+            />
+            <Route path="/detail/:id" element={<CardDetails />} />
 
-          <Route index element={<Home />} />
-          <Route
-            path="/login"
-            element={
-              <FormPage
-                formTitle="Log in to your account"
-                fields={fieldsLogin || []}
-                buttonTxt="Login"
+            {/* User page routes */}
+            <Route>
+              <Route index element={<UserSettings />} path="userconfig" />
+              <Route
+                index
+                element={<FeedReusable section="Read" listName="read" />}
+                path="read"
               />
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <FormPage
-                formTitle="Create a new account"
-                fields={fieldsSignup || []}
-                buttonTxt="Sign up"
+              <Route
+                index
+                element={<FeedReusable section="Favorites" listName="favorite"/>}
+                path="favorites"
               />
-            }
-          />
-          <Route path="/detail/:id" element={<CardDetails />} />
-
-          {/* User page routes */}
-          <Route>
-            <Route index element={<UserSettings />} path="userconfig" />
-            <Route
-              index
-              element={<FeedReusable section="Read" />}
-              path="read"
-            />
-            <Route
-              index
-              element={<FeedReusable section="Favorites" />}
-              path="favorites"
-            />
-            <Route
-              index
-              element={<FeedReusable section="Wish" />}
-              path="wish"
-            />
+              <Route
+                index
+                element={<FeedReusable section="Wish" listName="wish"/>}
+                path="wish"
+              />
+            </Route>
           </Route>
-        </Route>
-        <Route path="/dashboard" element={<DashboardAdminRoute />} />
-      </Routes>
+          <Route path="/dashboard" element={<DashboardAdminRoute />} />
+        </Routes>
+
     </Suspense>
   );
 };

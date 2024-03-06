@@ -39,15 +39,15 @@ const SearchBar = () => {
               <ul className=" flex items-center mx-auto">
                 <li className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90 flex items-center gap-2">
                   <AiFillRead className="text-base" color="white" />
-                  <NavLink to="read" className="text-base">
+                  <Link to="read" className="text-base">
                     Read
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90 flex items-center gap-2">
                   <AiFillStar className="text-base" color="white" />
-                  <NavLink to="favorites" className="text-base">
+                  <Link to="favorites" className="text-base">
                     Favorites
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90 flex items-center gap-2">
                   <AiFillHeart className="text-base" color="white" />
