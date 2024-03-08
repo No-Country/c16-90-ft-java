@@ -4,13 +4,22 @@ import { useParams } from "react-router-dom";
 import CommentSection from "./CommentSection";
 import Comments from "./Comments";
 import SkeletonCardDetail from "./SkeletonCardDetail";
-import { AiOutlineStar, AiFillStar, AiFillBook, AiOutlineBook, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import {
+  AiOutlineStar,
+  AiFillStar,
+  AiFillBook,
+  AiOutlineBook,
+  AiFillHeart,
+  AiOutlineHeart,
+} from "react-icons/ai";
+import { UserSessionLocalProvider } from "../context/UserSessionLocalProvider";
 
 const CardDetails = () => {
   const [dataBook, setDataBook] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const { sessionActive } = UserSessionLocalProvider;
   const { id } = useParams();
 
   const callBookId = useCallback(async (bookId) => {
@@ -38,13 +47,25 @@ const CardDetails = () => {
 
   const { favorite, addFavorite } = useFavoriteContext();
   const isFavorite = favorite.favorite.some((fav) => fav.id === id);
-  const iconFavorite = isFavorite ? <AiOutlineStar size={25}/> : <AiFillStar size={25}/>;
-  
+  const iconFavorite = isFavorite ? (
+    <AiOutlineStar size={25} />
+  ) : (
+    <AiFillStar size={25} />
+  );
+
   const isRead = favorite.read.some((read) => read.id === id);
-  const iconRead =  isRead ? <AiOutlineBook size={25}/> : <AiFillBook size={25}/>;
+  const iconRead = isRead ? (
+    <AiOutlineBook size={25} />
+  ) : (
+    <AiFillBook size={25} />
+  );
 
   const isWish = favorite.wish.some((wish) => wish.id === id);
-  const iconWish = isWish ? <AiOutlineHeart size={25}/> :  <AiFillHeart size={25}/>;
+  const iconWish = isWish ? (
+    <AiOutlineHeart size={25} />
+  ) : (
+    <AiFillHeart size={25} />
+  );
 
   useEffect(() => {
     callBookId(id);
@@ -59,6 +80,8 @@ const CardDetails = () => {
     // Puedes mostrar un mensaje de error aquí
     return <p>{error}</p>;
   }
+
+  console.log(sessionActive);
 
   return (
     <section
@@ -83,7 +106,7 @@ const CardDetails = () => {
               {dataBook && dataBook.description}
             </p>
             <div className="flex border-t border-gray-200 py-2">
-              <span className="text-gray-500">Generos</span>
+              <span className="text-gray-500">Genres</span>
               <span className="ml-auto text-gray-900">
                 {" "}
                 {dataBook?.genres?.split(",").slice(0, 2).join(", ")}
@@ -97,6 +120,20 @@ const CardDetails = () => {
                 {dataBook && dataBook.rating}
               </span>
             </div>
+            <div className="flex border-t border-gray-200 py-2">
+              <span className="text-gray-500">Pages</span>
+              <span className="ml-auto text-gray-900">
+                {" "}
+                {dataBook && dataBook.num_pages}
+              </span>
+            </div>
+            <div className="flex border-t border-gray-200 py-2">
+              <span className="text-gray-500">Authors</span>
+              <span className="ml-auto text-gray-900">
+                {" "}
+                {dataBook && dataBook.authors}
+              </span>
+            </div>
             {dataBook && dataBook.edition && (
               <div className="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span className="text-gray-500">Edition</span>
@@ -105,19 +142,21 @@ const CardDetails = () => {
                 </span>
               </div>
             )}
-            <div className="flex flex-col gap-4 mt-5">
-              <button onClick={() => addFavorite("favorite", { id })}>
-                {iconFavorite}
-              </button>
+            {true && (
+              <div className="flex gap-4 mt-5">
+                <button onClick={() => addFavorite("favorite", { id })}>
+                  {iconFavorite}
+                </button>
 
-              <button onClick={() => addFavorite("read", { id })}>
-                {iconRead}
-              </button>
+                <button onClick={() => addFavorite("read", { id })}>
+                  {iconRead}
+                </button>
 
-              <button onClick={() => addFavorite("wish", { id })}>
-                {iconWish}
-              </button>
-            </div>
+                <button onClick={() => addFavorite("wish", { id })}>
+                  {iconWish}
+                </button>
+              </div>
+            )}
           </div>
           <img
             alt={dataBook && dataBook.title}

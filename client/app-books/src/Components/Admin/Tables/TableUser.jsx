@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 // como el nombre de usuario, fecha
 //  y hora de registro, y cualquier dato adicional útil.
 const headerNav = [
-  "Nombre",
-  "email",
-  "Fecha Registro",
-  "Hora Registro",
-  "Sexo",
+  "Name",
+  "Email",
+  "Registration Date",
+  "Registration time",
+  "Genre",
 ];
 
 const TableOne = () => {
@@ -34,7 +34,7 @@ const TableOne = () => {
       );
       const newData = await response.json();
       setDataUser(newData);
-      alert("Datos actualizados correctamente");
+      alert("Data updated correctly");
     } catch (error) {
       console.error("Error fetching users:", error);
       alert("Error al actualizar datos");
@@ -62,8 +62,8 @@ const TableOne = () => {
             className="bg-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={handleSortChange}
           >
-            <option value="recientes">Más recientes</option>
-            <option value="antiguos">Mas antiguos</option>
+            <option value="recientes">More recent</option>
+            <option value="antiguos">Older</option>
           </select>
         </form>
 
@@ -72,7 +72,7 @@ const TableOne = () => {
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           onClick={handleButtonAct}
         >
-          Actualizar
+          Update
         </button>
       </div>
 
@@ -157,7 +157,7 @@ const TableOne = () => {
               onClick={() => setHiddenUsers(!hiddenUsers)}
               className="bg-blue-500 px-3 py-1 shadow-lg shadow-gray-500/50 ¿ text-white rounded-lg text-[15px] cursor-pointer active:scale-[.97]"
             >
-              {!hiddenUsers ? "Ver más" : "Ver menos"}
+              {!hiddenUsers ? "See more" : "See less"}
             </button>
           </div>
         )}

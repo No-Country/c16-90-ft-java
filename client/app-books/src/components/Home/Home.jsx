@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import Categories from "./Categories";
 import useServices from "../../services/useServices";
 import SearchForm from "../../Components/Home/SearchForm";
+import { Footer } from "../Footer";
 
 const NotFoundMessage = () => {
   return (
@@ -146,6 +147,7 @@ const Home = () => {
       </nav>
       <SectionBooks books={filterValue} message={message} loading={loading} />
       <div></div>
+      <Footer />
     </main>
   );
 };

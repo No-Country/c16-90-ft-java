@@ -27,7 +27,7 @@ const Cards = ({ title, authors, genres, image, description, id }) => {
               className="text-boxdark-2 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer"
               to={`detail/${id}`}
             >
-              Ver más
+              See more
               <svg
                 className="w-4 h-4 ml-2"
                 viewBox="0 0 24 24"

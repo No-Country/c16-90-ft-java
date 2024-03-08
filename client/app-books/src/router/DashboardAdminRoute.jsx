@@ -56,7 +56,7 @@ const DashboardAdminRoute = () => {
                       Phone number
                     </dt>
                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      null
+                      No data entry
                     </dd>
                   </div>
                   <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -64,7 +64,7 @@ const DashboardAdminRoute = () => {
                       Address
                     </dt>
                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                      null
+                      No data entry
                     </dd>
                   </div>
                 </dl>
@@ -81,7 +81,7 @@ const DashboardAdminRoute = () => {
           <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
           <Tables
             compontentTable="userTable"
-            pageName={"Tabla de usuarios"}
+            pageName={"Users table"}
             pageRouteName={"users"}
           />
         </>
@@ -94,7 +94,7 @@ const DashboardAdminRoute = () => {
           <PageTitle title="Tables | TailAdmin - Tailwind CSS Admin Dashboard Template" />
           <Tables
             compontentTable="bookTable"
-            pageName={"Tabla de libros"}
+            pageName={"Book table"}
             pageRouteName={"books/table"}
           />
         </>

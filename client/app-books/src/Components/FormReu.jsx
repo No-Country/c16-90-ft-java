@@ -20,7 +20,7 @@ const FormReu = ({ formTitle, fields, onSubmit, buttonTxt }) => {
   };
 
   return (
-    <section className=" p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 max-w-lg mt-[10rem]">
+    <section className=" p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 max-w-lg mt-[10rem] ">
       <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
         {formTitle}
       </h2>

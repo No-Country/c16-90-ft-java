@@ -40,8 +40,8 @@ const SearchBar = () => {
             />
           </Link>
           {sessionActive ? (
-            <div className="flex items-center justify-end flex-1 bg-gray-400 p-4 rounded">
-              <ul className=" flex items-center mx-auto">
+            <div className="flex items-center justify-end flex-1 bg-gray-400 p-4 rounded ">
+              <ul className=" flex items-center mx-auto gap-4">
                 <li className="bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 text-base hover:border-[#fff] cursor-pointer transition hover:bg-opacity-90 flex items-center gap-2">
                   <AiFillRead className="text-base" color="white" />
                   <Link to="read" className="text-base">

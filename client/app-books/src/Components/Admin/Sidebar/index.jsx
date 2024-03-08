@@ -155,7 +155,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                             </clipPath>
                           </defs>
                         </svg>
-                        Libros
+                        Books
                         <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
                             open && "rotate-180"
@@ -189,7 +189,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                 (isActive && "!text-white")
                               }
                             >
-                              Tabla
+                              Table
                             </NavLink>
                           </li>
                           <li>
@@ -200,7 +200,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                 (isActive && "!text-white")
                               }
                             >
-                              Crear libro
+                              Create book
                             </NavLink>
                           </li>
                         </ul>
@@ -243,7 +243,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                       </clipPath>
                     </defs>
                   </svg>
-                  Usuarios
+                  Users
                 </NavLink>
               </li>
             </ul>
